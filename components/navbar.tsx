@@ -1,9 +1,11 @@
 "use client";
+
 import React, { useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils"; // Utility for className handling
 import { motion } from "framer-motion";
 import { Menu, X } from "react-feather"; // For mobile menu icon
+import Image from "next/image";
 
 export const Navbar = () => {
   const [active, setActive] = useState<string | null>("About Us");
@@ -15,7 +17,15 @@ export const Navbar = () => {
         {/* Title/Logo */}
         <div className="text-2xl font-semibold">
           <Link href="/">
-            <span>Gymkhana.</span>
+            <span>
+              <Image
+                src="/logo.png"
+                alt="IEM Kolkata logo"
+                className="w-full h-auto object-cover"
+                height={500}
+                width={500}
+              />
+            </span>
           </Link>
         </div>
 
@@ -38,7 +48,7 @@ export const Navbar = () => {
           className="hidden md:block bg-black text-white px-4 py-2 rounded-full hover:bg-neutral-800 flex items-center"
         >
           <Link href="/about" className="flex items-center">
-            About Us <span className="ml-2">→</span>
+            Get in Touch<span className="ml-2">→</span>
           </Link>
         </motion.div>
 
