@@ -1,7 +1,7 @@
 import Navbar from "@/components/navbar";
-import Hero from "@/components/hero";
 import FeaturedEvents from "@/components/about";
 import Awards from "@/components/awards";
+import Hero from "@/components/hero";
 
 export default function Home() {
   return (
