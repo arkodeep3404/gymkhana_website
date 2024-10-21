@@ -23,7 +23,7 @@ export default function MediaCoverage() {
             {/* Item 1 */}
             <div className="bg-white p-4 rounded-xl shadow-md flex items-center space-x-4">
       {/* Blue Card */}
-      <div className="bg-blue-200 rounded-lg w-20 h-20 flex-shrink-0"></div>
+      <div className="bg-blue-200 rounded-xl w-20 h-20 flex-shrink-0"></div>
 
       {/* Text and Button */}
       <div className="flex-grow">
