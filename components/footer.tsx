@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa'; // Importing icons from react-icons
+import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa'; 
 
 const Footer: React.FC = () => {
   return (
@@ -8,8 +8,12 @@ const Footer: React.FC = () => {
         {/* Address Section */}
         <div className="w-full md:w-1/2 mb-4 md:mb-0">
           <h1 className="text-lg font-bold">Gymkhana.</h1>
+         
+        </div>
+        <div className="w-full md:w-1/2 mb-4 md:mb-0">
+          <h1 className="text-lg font-bold">Address</h1>
           <p className="mt-2">
-            <strong>Address:</strong><br />
+           
             Y2, EP Block, Sector V,<br />
             Bidhannagar, Kolkata,<br />
             West Bengal 700091.
@@ -34,13 +38,13 @@ const Footer: React.FC = () => {
         <p>© Copyright reserved 2025</p>
         <div className="flex space-x-4">
           <a href="#" className="text-white hover:text-gray-400">
-            <FaFacebookF size={20} /> {/* Facebook icon from react-icons */}
+            <FaFacebookF size={20} /> 
           </a>
           <a href="#" className="text-white hover:text-gray-400">
-            <FaLinkedinIn size={20} /> {/* LinkedIn icon from react-icons */}
+            <FaLinkedinIn size={20} /> 
           </a>
           <a href="#" className="text-white hover:text-gray-400">
-            <FaInstagram size={20} /> {/* Instagram icon from react-icons */}
+            <FaInstagram size={20} /> 
           </a>
         </div>
       </div>
