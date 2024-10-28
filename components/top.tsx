@@ -13,7 +13,7 @@ const Hero = () => {
         </h1>
       </div>
       <div className="flex flex-col justify-evenly md:items-start md:col-span-1">
-        <p className="text-sm text-gray-600 text-center md:text-left">
+        <p className="text-sm text-black text-center md:text-left">
           From athletics to cultural fests, it empowers students to explore
           <br className="hidden md:inline" />
           their passions beyond academics.

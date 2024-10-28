@@ -5,57 +5,25 @@ import { ChevronLeft, ChevronRight } from "react-feather";
 import Image from "next/image";
 import Footer from "@/components/footer";
 // Carousel Component
-const Carousel = () => {
-  const events = [
-    {
-      title: "Saraswati Puja",
-      description: "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
-      image: "/sarswatipuja.png", // Update with the actual image path
-    },
-    {
-      title: "Another Event",
-      description: "Description for another event.",
-      image: "", // Add additional events as needed
-    },
-  ];
+import Carousel from "@/components/carousel";
+const events = [
+  {
+    title: "Saraswati Puja",
+    description: "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
+    image: "/sarswatipuja.png",
+  },
+  {
+    title: "Another Event",
+    description: "Description for another event.",
+    image: "/1st_event.png",
+  },
+  {
+    title: " Event",
+    description: "Description for another event.",
+    image: "/3rd_event.png",
+  },
+];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? events.length - 1 : prevIndex - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === events.length - 1 ? 0 : prevIndex + 1));
-  };
-
-  return (
-    <div className="max-w-md mx-auto p-4">
-      <div className="relative rounded-lg overflow-hidden shadow-lg">
-        <Image
-          src={events[currentIndex].image}
-          alt={events[currentIndex].title}
-          width={600}
-          height={400}
-          className="object-cover w-full h-auto"
-        />
-        <div className="absolute inset-0 border-2 border-blue-500 rounded-lg"></div>
-      </div>
-      <div className="text-center mt-4">
-        <h2 className="text-2xl font-semibold">{events[currentIndex].title}</h2>
-        <p className="text-gray-600">{events[currentIndex].description}</p>
-      </div>
-      <div className="flex justify-between items-center mt-4">
-        <button onClick={handlePrev} className="p-2 bg-gray-200 rounded-full hover:bg-gray-300">
-          <ChevronLeft />
-        </button>
-        <button onClick={handleNext} className="p-2 bg-gray-200 rounded-full hover:bg-gray-300">
-          <ChevronRight />
-        </button>
-      </div>
-    </div>
-  );
-};
 const awards = [
     {
       title: "Green Campus Award",
@@ -203,16 +171,15 @@ const Events = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-row ml-20 justify-between items-center py-10">
+      <div className="flex flex-row ml-20 justify-between items-center py-20">
         <div className="md:flex-1 flex justify-center md:justify-start">
           <h1 className="text-5xl font-bold mb-2">
             Vibrant Events,
-            <br className="hidden md:inline" />
             Lasting Memories.
           </h1>
         </div>
         <div className="md:flex-1 flex flex-col justify-evenly md:items-start">
-          <p className="text-sm text-gray-600 text-center md:text-left">
+          <p className="text-lg text-gray-950 text-center md:text-left">
             From athletics to cultural fests, it empowers students
             <br className="hidden md:inline" />
             to explore their passions beyond academics.
@@ -222,7 +189,7 @@ const Events = () => {
 
       {/* Carousel Section */}
       <div className="flex justify-center py-10">
-        <Carousel />
+        <Carousel items={events}/>
       </div>
       <div className="mb-20"><AwardsCarousel /></div>
       <div className="mb-20"><AwardsCarousel2023/></div>

@@ -5,10 +5,10 @@ const Awards = () => {
   return (
     <div className="mt-20 mx-auto px-4">
       <div className="flex flex-col items-center justify-center">
-        <h2 className="text-2xl font-bold mb-4">
+        <h1 className="text-6xl font-bold mb-4">
           Celebrating Our Journey of Excellence and Impact
-        </h2>
-        <p className="mb-8">
+        </h1>
+        <p className="mb-8 text-2xl">
           Awards received from various organizations and events
         </p>
       </div>
@@ -68,7 +68,7 @@ const Awards = () => {
           <p className="mb-8">FICCI</p>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center">
+      <div className="p-20 flex flex-col items-center justify-center">
         <button className="mt-4 px-4 py-2 bg-[#0740C6] text-white rounded-full">
           View More →
         </button>

@@ -3,11 +3,11 @@ import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-white rounded-lg py-4">
+    <footer className="bg-gray-900 text-white rounded-2xl py-4">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-start">
         {/* Address Section */}
         <div className="w-full md:w-1/2 mb-4 md:mb-0">
-          <h1 className="text-lg font-bold">Gymkhana.</h1>
+          <h1 className="text-xl font-bold">Gymkhana.</h1>
          
         </div>
         <div className="w-full md:w-1/2 mb-4 md:mb-0">
@@ -35,8 +35,8 @@ const Footer: React.FC = () => {
 
       {/* Copyright & Social Icons */}
       <div className="flex justify-between items-center">
-        <p>© Copyright reserved 2025</p>
-        <div className="flex space-x-4">
+        <p className='pl-20'>© Copyright reserved 2025</p>
+        <div className="flex space-x-4 pr-10 ">
           <a href="#" className="text-white hover:text-gray-400">
             <FaFacebookF size={20} /> 
           </a>

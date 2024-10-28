@@ -28,16 +28,16 @@ export const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-4">
-          <Link href="/about-us" className="hover:text-blue-500">
+          <Link href="/Home" className="hover:text-blue-500">
             About Us
           </Link>
           <Link href="/Events" className="hover:text-blue-500">
-            events
+            Events
           </Link>
           <Link href="/awards" className="hover:text-blue-500">
             Awards
           </Link>
-          <Link href="/clubs-community" className="hover:text-blue-500">
+          <Link href="/Club" className="hover:text-blue-500">
             Clubs & Community
           </Link>
         </nav>
