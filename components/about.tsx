@@ -20,7 +20,7 @@ const FeaturedEvents = () => {
         </div>
         <div className="p-4">
           <Image src="/3rd_event.png" alt="Event 3" width={425} height={334} />
-          <p className="py-5">
+          <p className="py-10">
             From academic achievements to sustainability drives, explore how
             colleges are shaping the future with impactful projects and
             collaborations.
