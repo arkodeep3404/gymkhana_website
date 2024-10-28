@@ -71,8 +71,11 @@ export default function Club(){
           <p>Prof. Rahul Baidya</p>
           <p>Prof. Ratna Chakraborty</p>
           <p>Prof. Indranil Basu</p>
+          
         </div>
+        
       </div>
+      <hr className="border-t border-gray-300" />
     </div>
       </div>
       <div className="py-20">
