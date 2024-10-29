@@ -7,7 +7,7 @@ import { Menu, X } from "react-feather"; // For mobile menu icon
 import Image from "next/image";
 
 export const Navbar = () => {
-  const [active, setActive] = useState<string | null>("About Us");
+  //const [active, setActive] = useState<string | null>("About Us");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (

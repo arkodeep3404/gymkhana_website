@@ -1,5 +1,9 @@
 import React from "react";
 import Image from "next/image";
+import award1 from "@/public/award1.png";
+import award2 from "@/public/award2.png";
+import award3 from "@/public/award3.png";
+import award4 from "@/public/award4.png";
 
 const Awards = () => {
   return (
@@ -15,7 +19,7 @@ const Awards = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="p-4">
           <Image
-            src="/award1.png"
+            src={award1}
             alt="Event 1"
             className="w-full h-auto object-cover"
             width={309}
@@ -27,7 +31,7 @@ const Awards = () => {
         </div>
         <div className="p-4">
           <Image
-            src="/award2.png"
+            src={award2}
             alt="Event 1"
             className="w-full h-auto object-cover"
             width={309}
@@ -41,7 +45,7 @@ const Awards = () => {
         </div>
         <div className="p-4">
           <Image
-            src="/award3.png"
+            src={award3}
             alt="Event 1"
             className="w-full h-auto object-cover"
             width={309}
@@ -55,7 +59,7 @@ const Awards = () => {
         </div>
         <div className="p-4">
           <Image
-            src="/award4.png"
+            src={award4}
             alt="Event 1"
             className="w-full h-auto object-cover"
             width={309}

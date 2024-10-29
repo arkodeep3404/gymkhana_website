@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 // Define types for carousel items and props
 type CarouselItem = {
@@ -47,7 +48,7 @@ const Carousel = ({
   transitionDuration = 500,
   sideImageOpacity = 60,
   peekSize = 32,
-  backgroundColor = "bg-white"
+  backgroundColor = "bg-white",
 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -55,7 +56,7 @@ const Carousel = ({
   // Auto play effect
   useEffect(() => {
     if (!autoPlay) return;
-    
+
     const interval = setInterval(() => {
       handleNext();
     }, autoPlayInterval);
@@ -66,96 +67,114 @@ const Carousel = ({
   const handlePrev = () => {
     if (isTransitioning) return;
     setIsTransitioning(true);
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? items.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? items.length - 1 : prevIndex - 1
+    );
     setTimeout(() => setIsTransitioning(false), transitionDuration);
   };
 
   const handleNext = () => {
     if (isTransitioning) return;
     setIsTransitioning(true);
-    setCurrentIndex((prevIndex) => (prevIndex === items.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === items.length - 1 ? 0 : prevIndex + 1
+    );
     setTimeout(() => setIsTransitioning(false), transitionDuration);
   };
 
   return (
-    <div className={`relative w-full overflow-hidden ${backgroundColor} ${className}`}>
+    <div
+      className={`relative w-full overflow-hidden ${backgroundColor} ${className}`}
+    >
       <div className="relative max-w-[2000px] mx-auto">
-        <div className="relative flex items-center justify-center px-4" 
-             style={{ height: `${mainImageHeight + 100}px` }}>
+        <div
+          className="relative flex items-center justify-center px-4"
+          style={{ height: `${mainImageHeight + 100}px` }}
+        >
           {/* Previous Image */}
-          <div 
+          <div
             className="absolute -left-4 transition-all duration-500 ease-in-out transform"
             style={{
               width: `${sideImageWidth}px`,
               height: `${sideImageHeight}px`,
               opacity: isTransitioning ? 0 : sideImageOpacity / 100,
-              transform: isTransitioning ? 
-                'translateX(-100%)' : 
-                `translateX(${peekSize}px)`
+              transform: isTransitioning
+                ? "translateX(-100%)"
+                : `translateX(${peekSize}px)`,
             }}
           >
-            <img
-              src={items[(currentIndex - 1 + items.length) % items.length].image}
-              alt={items[(currentIndex - 1 + items.length) % items.length].title}
+            <Image
+              src={
+                items[(currentIndex - 1 + items.length) % items.length].image
+              }
+              alt={
+                items[(currentIndex - 1 + items.length) % items.length].title
+              }
               className={`rounded-lg object-cover w-full h-full shadow-lg ${imageClassName}`}
+              height={500}
+              width={500}
             />
           </div>
 
           {/* Main Image */}
-          <div 
+          <div
             className="relative mx-auto overflow-hidden rounded-lg shadow-xl z-10"
             style={{
               width: `${mainImageWidth}px`,
-              height: `${mainImageHeight}px`
+              height: `${mainImageHeight}px`,
             }}
           >
-            <div 
+            <div
               className="relative w-full h-full transition-transform duration-500"
               style={{
-                transform: isTransitioning ? 'scale(1.05)' : 'scale(1)'
+                transform: isTransitioning ? "scale(1.05)" : "scale(1)",
               }}
             >
-              <img
+              <Image
                 src={items[currentIndex].image}
                 alt={items[currentIndex].title}
                 className={`object-cover w-full h-full ${imageClassName}`}
+                height={500}
+                width={500}
               />
               <div className="absolute inset-0 border-4 border-blue-500 rounded-lg"></div>
             </div>
           </div>
 
           {/* Next Image */}
-          <div 
+          <div
             className="absolute -right-4 transition-all duration-500 ease-in-out transform"
             style={{
               width: `${sideImageWidth}px`,
               height: `${sideImageHeight}px`,
               opacity: isTransitioning ? 0 : sideImageOpacity / 100,
-              transform: isTransitioning ? 
-                'translateX(100%)' : 
-                `translateX(-${peekSize}px)`
+              transform: isTransitioning
+                ? "translateX(100%)"
+                : `translateX(-${peekSize}px)`,
             }}
           >
-            <img
+            <Image
               src={items[(currentIndex + 1) % items.length].image}
               alt={items[(currentIndex + 1) % items.length].title}
               className={`rounded-lg object-cover w-full h-full shadow-lg ${imageClassName}`}
+              height={500}
+              width={500}
             />
           </div>
 
           {/* Navigation Buttons */}
           {showArrows && (
             <>
-              <button 
-                onClick={handlePrev} 
+              <button
+                onClick={handlePrev}
                 className={`absolute left-8 z-20 p-4 bg-white/90 rounded-full hover:bg-white 
                   transition-colors disabled:opacity-50 shadow-lg ${navigationClassName}`}
                 disabled={isTransitioning}
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
-              <button 
-                onClick={handleNext} 
+              <button
+                onClick={handleNext}
                 className={`absolute right-8 z-20 p-4 bg-white/90 rounded-full hover:bg-white 
                   transition-colors disabled:opacity-50 shadow-lg ${navigationClassName}`}
                 disabled={isTransitioning}
