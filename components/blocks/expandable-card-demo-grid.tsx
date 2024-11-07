@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hook/use-outside-click";
-
+import { awards } from "@/app/Events/page";
 
 
 export default function ExpandableCardDemo() {
@@ -31,6 +31,19 @@ export default function ExpandableCardDemo() {
   }, [active]);
 
   useOutsideClick(ref, () => setActive(null));
+
+const cards = awards.map((award) => ({
+  title: award.title,
+  description: award.description,
+  src: award.image,
+  content: () => (
+    <p>
+      {award.title}, an esteemed recognition, is awarded to those excelling in their respective fields.
+      <br />
+      {award.description}
+    </p>
+  ),
+}));
 
   return (
     <>
@@ -100,7 +113,7 @@ export default function ExpandableCardDemo() {
                     </motion.p>
                   </div>
 
-                  <motion.a
+                  {/* <motion.a
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -110,7 +123,7 @@ export default function ExpandableCardDemo() {
                     className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
                   >
                     {active.ctaText}
-                  </motion.a>
+                  </motion.a> */}
                 </div>
                 <div className="pt-4 relative px-4">
                   <motion.div
@@ -206,95 +219,4 @@ export const CloseIcon = () => {
   );
 };
 
-const cards = [
-  {
-    description: "Lana Del Rey",
-    title: "Summertime Sadness",
-    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2IYhSn8Y9S9_HF3tVaYOepJBcrYcd809pBA&s",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          Lana Del Rey, an iconic American singer-songwriter, is celebrated for
-          her melancholic and cinematic music style. Born Elizabeth Woolridge
-          Grant in New York City, she has captivated audiences worldwide with
-          her haunting voice and introspective lyrics. <br /> <br /> Her songs
-          often explore themes of tragic romance, glamour, and melancholia,
-          drawing inspiration from both contemporary and vintage pop culture.
-          With a career that has seen numerous critically acclaimed albums, Lana
-          Del Rey has established herself as a unique and influential figure in
-          the music industry, earning a dedicated fan base and numerous
-          accolades.
-        </p>
-      );
-    },
-  },
-  // {
-  //   description: "Babbu Maan",
-  //   title: "Mitran Di Chhatri",
-  //   src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2IYhSn8Y9S9_HF3tVaYOepJBcrYcd809pBA&s",
-  //   ctaText: "Visit",
-  //   ctaLink: "https://ui.aceternity.com/templates",
-  //   content: () => {
-  //     return (
-  //       <p>
-  //         Babu Maan, a legendary Punjabi singer, is renowned for his soulful
-  //         voice and profound lyrics that resonate deeply with his audience. Born
-  //         in the village of Khant Maanpur in Punjab, India, he has become a
-  //         cultural icon in the Punjabi music industry. <br /> <br /> His songs
-  //         often reflect the struggles and triumphs of everyday life, capturing
-  //         the essence of Punjabi culture and traditions. With a career spanning
-  //         over two decades, Babu Maan has released numerous hit albums and
-  //         singles that have garnered him a massive fan following both in India
-  //         and abroad.
-  //       </p>
-  //     );
-  //   },
-  // },
 
-  // {
-  //   description: "Metallica",
-  //   title: "For Whom The Bell Tolls",
-  //   src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2IYhSn8Y9S9_HF3tVaYOepJBcrYcd809pBA&s",
-  //   ctaText: "Visit",
-  //   ctaLink: "https://ui.aceternity.com/templates",
-  //   content: () => {
-  //     return (
-  //       <p>
-  //         Metallica, an iconic American heavy metal band, is renowned for their
-  //         powerful sound and intense performances that resonate deeply with
-  //         their audience. Formed in Los Angeles, California, they have become a
-  //         cultural icon in the heavy metal music industry. <br /> <br /> Their
-  //         songs often reflect themes of aggression, social issues, and personal
-  //         struggles, capturing the essence of the heavy metal genre. With a
-  //         career spanning over four decades, Metallica has released numerous hit
-  //         albums and singles that have garnered them a massive fan following
-  //         both in the United States and abroad.
-  //       </p>
-  //     );
-  //   },
-  // },
-  // {
-  //   description: "Lord Himesh",
-  //   title: "Aap Ka Suroor",
-  //   src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2IYhSn8Y9S9_HF3tVaYOepJBcrYcd809pBA&s",
-  //   ctaText: "Visit",
-  //   ctaLink: "https://ui.aceternity.com/templates",
-  //   content: () => {
-  //     return (
-  //       <p>
-  //         Himesh Reshammiya, a renowned Indian music composer, singer, and
-  //         actor, is celebrated for his distinctive voice and innovative
-  //         compositions. Born in Mumbai, India, he has become a prominent figure
-  //         in the Bollywood music industry. <br /> <br /> His songs often feature
-  //         a blend of contemporary and traditional Indian music, capturing the
-  //         essence of modern Bollywood soundtracks. With a career spanning over
-  //         two decades, Himesh Reshammiya has released numerous hit albums and
-  //         singles that have garnered him a massive fan following both in India
-  //         and abroad.
-  //       </p>
-  //     );
-  //   },
-  // },
-];

@@ -27,7 +27,7 @@ const events = [
   },
 ];
 
-const awards = [
+export const awards = [
   {
     title: "Green Campus Award",
     description: "MHRD, FICCI",
@@ -67,7 +67,7 @@ const AwardsCarousel = () => {
       <h2 className="text-2xl font-bold mb-5">2023</h2>
       <div className="relative flex items-center" style={{ gap: "50px" }}>
 
-        <button onClick={handlePrev} className="p-2 bg-red-200 rounded-full hover:bg-gray-300">
+        <button onClick={handlePrev} className="p-2 bg-gray-200 rounded-full hover:bg-gray-300">
           <ChevronLeft />
         </button>
 
@@ -131,7 +131,7 @@ const AwardsCarousel2023 = () => {
       <h2 className="text-2xl font-bold mb-5">2023</h2>
       <div className="relative flex items-center" style={{ gap: "50px" }}>
 
-        <button onClick={handlePrev} className="p-2 bg-red-200 rounded-full hover:bg-gray-300">
+        <button onClick={handlePrev} className="p-2 bg-gray-200 rounded-full hover:bg-gray-300">
           <ChevronLeft />
         </button>
 
