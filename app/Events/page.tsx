@@ -1,10 +1,12 @@
 "use client";
 import Navbar from "@/components/navbar";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Footer from "@/components/footer";
 import Carousel from "@/components/carousel";
 import ExpandableCardDemo from "@/components/blocks/expandable-card-demo-grid";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const events = [
   {
@@ -24,7 +26,7 @@ const events = [
   },
 ];
 
-export const awards = [
+const awards2024 = [
   {
     title: "Green Campus Award",
     description: "MHRD, FICCI",
@@ -44,6 +46,17 @@ export const awards = [
     title: "Best College for Industry-Academia Collaboration",
     description: "NCCFI",
     image: "/2024_4.png",
+  },
+  // Add more awards to test navigation
+  {
+    title: "Sustainability Leadership Award",
+    description: "Green University Alliance",
+    image: "/2024_5.png",
+  },
+  {
+    title: "Outstanding Research Contribution",
+    description: "National Science Foundation",
+    image: "/2024_6.png",
   },
 ];
 
@@ -70,6 +83,48 @@ const awards2023 = [
   },
 ];
 
+const AwardsSection = ({ title, awards }: { title: string; awards: any[] }) => {
+  const [startIndex, setStartIndex] = useState(0);
+  const itemsPerPage = 4;
+
+  const handlePrev = () => {
+    setStartIndex((prevIndex) => Math.max(0, prevIndex - itemsPerPage));
+  };
+
+  const handleNext = () => {
+    setStartIndex((prevIndex) => Math.min(awards.length - itemsPerPage, prevIndex + itemsPerPage));
+  };
+
+  return (
+    <div className="mb-20">
+      <h2 className="text-2xl font-bold mx-10 mb-5">{title}</h2>
+      <div className="relative">
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={handlePrev}
+          disabled={startIndex === 0}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm hover:bg-white/90"
+        >
+          <ChevronLeft className="h-4 w-4" />
+        </Button>
+
+        <ExpandableCardDemo awards={awards.slice(startIndex, startIndex + itemsPerPage)} />
+
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={handleNext}
+          disabled={startIndex >= awards.length - itemsPerPage}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm hover:bg-white/90"
+        >
+          <ChevronRight className="h-4 w-4" />
+        </Button>
+      </div>
+    </div>
+  );
+};
+
 const Events = () => {
   return (
     <div>
@@ -94,15 +149,8 @@ const Events = () => {
         <Carousel items={events} />
       </div>
 
-      <div className="mb-20">
-        <h2 className="text-2xl font-bold mb-5 mx-10">2024 Awards</h2>
-        <ExpandableCardDemo awards={awards} />
-      </div>
-
-      <div className="mb-20">
-        <h2 className="text-2xl font-bold mb-5 mx-10">2023 Awards</h2>
-        <ExpandableCardDemo awards={awards2023} />
-      </div>
+      <AwardsSection title="2024 Awards" awards={awards2024} />
+      <AwardsSection title="2023 Awards" awards={awards2023} />
 
       <Footer />
     </div>
