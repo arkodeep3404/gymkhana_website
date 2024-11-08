@@ -92,13 +92,14 @@ const cards = awards.map((award) => ({
                   height={200}
                   src={active.src}
                   alt={active.title}
-                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top p-2"
+
                 />
               </motion.div>
 
               <div>
                 <div className="flex justify-between items-start p-4">
-                  <div className="">
+                  <div>
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
                       className="font-medium text-neutral-700 dark:text-neutral-200 text-base"
@@ -163,10 +164,10 @@ const cards = awards.map((award) => ({
                   className="h-60 w-full rounded-lg object-cover object-top"
                 />
               </motion.div>
-              <div className="flex justify-center items-center flex-col">
+              <div >
                 <motion.h3
                   layoutId={`title-${card.title}-${id}`}
-                  className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left text-base"
+                  className="font-bold text-neutral-800 dark:text-neutral-200 text-center md:text-left text-base"
                 >
                   {card.title}
                 </motion.h3>
