@@ -97,30 +97,28 @@ const AwardsSection = ({ title, awards }: { title: string; awards: any[] }) => {
 
   return (
     <div className="mb-20">
-      <h2 className="text-2xl font-bold mx-10 mb-5">{title}</h2>
-      <div className="relative">
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={handlePrev}
-          disabled={startIndex === 0}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm hover:bg-white/90"
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </Button>
-
-        <ExpandableCardDemo awards={awards.slice(startIndex, startIndex + itemsPerPage)} />
-
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={handleNext}
-          disabled={startIndex >= awards.length - itemsPerPage}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm hover:bg-white/90"
-        >
-          <ChevronRight className="h-4 w-4" />
-        </Button>
+      <div className="flex justify-between items-center mx-10 mb-5">
+        <h2 className="text-2xl font-bold">{title}</h2>
+        <div className="flex gap-2">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={handlePrev}
+            disabled={startIndex === 0}
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={handleNext}
+            disabled={startIndex >= awards.length - itemsPerPage}
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </div>
       </div>
+      <ExpandableCardDemo awards={awards.slice(startIndex, startIndex + itemsPerPage)} />
     </div>
   );
 };
