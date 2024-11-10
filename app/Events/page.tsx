@@ -26,102 +26,194 @@ const events = [
   },
 ];
 
-const awards2024 = [
-  {
-    title: "Green Campus Award",
-    description: "MHRD, FICCI",
-    image: "/2024_1.png",
-  },
-  {
-    title: "Best Innovation in Campus Infrastructure",
-    description: "AIU",
-    image: "/2024_2.png",
-  },
-  {
-    title: "Excellence in Higher Education Award",
-    description: "India Today Group",
-    image: "/2024_3.png",
-  },
-  {
-    title: "Best College for Industry-Academia Collaboration",
-    description: "NCCFI",
-    image: "/2024_4.png",
-  },
-  // Add more awards to test navigation
-  {
-    title: "Sustainability Leadership Award",
-    description: "Green University Alliance",
-    image: "/2024_5.png",
-  },
-  {
-    title: "Outstanding Research Contribution",
-    description: "National Science Foundation",
-    image: "/2024_6.png",
-  },
-];
 
-const awards2023 = [
-  {
-    title: "Green Campus Award",
-    description: "MoEFCC",
-    image: "/2023_1.png",
-  },
-  {
-    title: "Best Innovation in Campus Infrastructure",
-    description: "AIU",
-    image: "/2023_2.png",
-  },
-  {
-    title: "Excellence in Higher Education Award",
-    description: "India Today Group",
-    image: "/2023_3.png",
-  },
-  {
-    title: "Best College for Industry-Academia Collaboration",
-    description: "FICCI",
-    image: "/2023_4.png",
-  },
-];
-
-const AwardsSection = ({ title, awards }: { title: string; awards: any[] }) => {
-  const [startIndex, setStartIndex] = useState(0);
-  const itemsPerPage = 4;
-
-  const handlePrev = () => {
-    setStartIndex((prevIndex) => Math.max(0, prevIndex - itemsPerPage));
-  };
-
-  const handleNext = () => {
-    setStartIndex((prevIndex) => Math.min(awards.length - itemsPerPage, prevIndex + itemsPerPage));
-  };
-
-  return (
-    <div className="mb-20">
-      <div className="flex justify-between items-center mx-10 mb-5">
-        <h2 className="text-2xl font-bold">{title}</h2>
-        <div className="flex gap-2">
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={handlePrev}
-            disabled={startIndex === 0}
+const awards = [
+    {
+      title: "Green Campus Award",
+      description: "MHRD, FICCI",
+      image: "/2024_1.png", // Replace with actual image path
+    },
+    {
+      title: "Best Innovation in Campus Infrastructure",
+      description: "AIU",
+      image: "/2024_2.png", // Replace with actual image path
+    },
+    {
+      title: "Excellence in Higher Education Award",
+      description: "India Today Group",
+      image: "/2024_3.png", // Replace with actual image path
+    },
+    {
+      title: "Best College for Industry-Academia Collaboration",
+      description: "NCCFI",
+      image: "/2024_4.png", // Replace with actual image path
+    },
+    // Add more awards as needed
+  ];
+  
+  const AwardsCarousel = () => {
+    const [currentIndex, setCurrentIndex] = useState(0)
+  
+    const handlePrev = () => {
+      setCurrentIndex((prevIndex) => (prevIndex === 0 ? awards2023.length - 4 : prevIndex - 1))
+    }
+  
+    const handleNext = () => {
+      setCurrentIndex((prevIndex) => (prevIndex === awards2023.length - 4 ? 0 : prevIndex + 1))
+    }
+  
+    return (
+      <div className="w-full max-w-7xl mx-auto px-6 py-8">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl font-bold">2024</h2>
+          <div className="flex gap-2">
+            <button
+              onClick={handlePrev}
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+              aria-label="Previous awards"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+              aria-label="Next awards"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+        
+        <div className="relative overflow-hidden">
+          <div
+            className="flex gap-6 transition-transform duration-300 ease-in-out"
+            style={{
+              transform: `translateX(-${currentIndex * (100 / 4)}%)`,
+            }}
           >
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={handleNext}
-            disabled={startIndex >= awards.length - itemsPerPage}
-          >
-            <ChevronRight className="h-4 w-4" />
-          </Button>
+            {awards.map((award, index) => (
+              <div
+                key={index}
+                className="flex-none w-1/4"
+              >
+                <div className="bg-white rounded-lg overflow-hidden">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={award.image}
+                      alt={award.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-medium text-sm mb-1">{award.title}</h3>
+                    <p className="text-sm text-gray-600">{award.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-      <ExpandableCardDemo awards={awards.slice(startIndex, startIndex + itemsPerPage)} />
-    </div>
-  );
-};
+    )
+  }
+  const awards2023 = [
+    {
+      title: "Green Campus Award",
+      organization: "MoEFCC",
+      image: "/2023_1.png",
+    },
+    {
+      title: "Best Innovation in Campus Infrastructure",
+      organization: "AIU",
+      image: "/2023_2.png",
+    },
+    {
+      title: "Excellence in Higher Education Award",
+      organization: "India Today Group",
+      image: "/2023_3.png",
+    },
+    {
+      title: "Best College for Industry-Academia Collaboration",
+      organization: "FICCI",
+      image: "/2023_4.png",
+    },
+    {
+      title: "Best College for Industry-Academia Collaboration",
+      organization: "FICCI",
+      image: "/2023_4.png",
+    },
+  ]
+  
+  export  function AwardsCarousel2023() {
+    const [currentIndex, setCurrentIndex] = useState(0)
+  
+    const handlePrev = () => {
+      setCurrentIndex((prevIndex) => (prevIndex === 0 ? awards2023.length - 4 : prevIndex - 1))
+    }
+  
+    const handleNext = () => {
+      setCurrentIndex((prevIndex) => (prevIndex === awards2023.length - 4 ? 0 : prevIndex + 1))
+    }
+  
+    return (
+      <div className="w-full max-w-7xl mx-auto px-6 py-8">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl font-bold">2023</h2>
+          <div className="flex gap-2">
+            <button
+              onClick={handlePrev}
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+              aria-label="Previous awards"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+              aria-label="Next awards"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+        
+        <div className="relative overflow-hidden">
+          <div
+            className="flex gap-6 transition-transform duration-300 ease-in-out"
+            style={{
+              transform: `translateX(-${currentIndex * (100 / 4)}%)`,
+            }}
+          >
+            {awards2023.map((award, index) => (
+              <div
+                key={index}
+                className="flex-none w-1/4"
+              >
+                <div className="bg-white rounded-lg overflow-hidden">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={award.image}
+                      alt={award.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-medium text-sm mb-1">{award.title}</h3>
+                    <p className="text-sm text-gray-600">{award.organization}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    )
+  }
+// Events Page
+
+
 
 const Events = () => {
   return (
