@@ -11,63 +11,70 @@ import Carousel from "@/components/carousel";
 const event2023 = [
   {
     title: "IEM-UEM Kolkata Marathon 2023",
-    description: "A major marathon with over 1,500 participants."
+    description: "A major marathon with over 1,500 participants.",
+    image: "/events/marathon.png"
   },
   {
     title: "IEMPACT 2023",
-    description: "The annual cultural fest featuring ten diverse events."
+    description: "The annual cultural fest featuring ten diverse events.",
+    image: "/events/iempact-fest.png"
   },
   {
     title: "Innovación 2023",
-    description: "A significant technical fest showcasing robotics and hackathons."
+    description: "A significant technical fest showcasing robotics and hackathons.",
+    image: "/events/innovcion.png"
   },
   {
     title: "SMART Maker Festival 2023",
-    description: "An international event gathering tech enthusiasts and inventors."
+    description: "An international event gathering tech enthusiasts and inventors.",
+    image: "/events/smart-maker.png"
   },
   {
     title: "IEM-MUN 2022",
-    description: "The ninth edition of the Model United Nations, conducted offline."
+    description: "The ninth edition of the Model United Nations, conducted offline.",
+    image: "/events/iem-mun.png"
   },
   {
     title: "Sports Day",
-    description: "An annual event promoting physical fitness and sportsmanship."
+    description: "An annual event promoting physical fitness and sportsmanship.",
+    image: "/events/sports-day.png"
   },
   {
     title: "Farewell Party",
-    description: "A heartfelt farewell with cultural performances and speeches."
+    description: "A heartfelt farewell with cultural performances and speeches.",
+    image: "/events/farewell.png"
   },
   {
     title: "Teacher's Day Celebration",
-    description: "A cultural event honoring teachers with performances."
+    description: "A cultural event honoring teachers with performances.",
+    image: "/events/teachers-day.png"
   },
   {
     title: "Agomoni Festival",
-    description: "An annual celebration marking the arrival of Maa Durga."
+    description: "An annual celebration marking the arrival of Maa Durga.",
+    image: "/events/agonomi.png"
   },
   {
     title: "Rabindra Jayanti",
-    description: "A tribute to Rabindranath Tagore with cultural performances."
+    description: "A tribute to Rabindranath Tagore with cultural performances.",
+    image: "/events/rabindranth-jayanth.png"
   },
   {
     title: "DIVERSION 2023",
-    description: "An open-source initiative encouraging contributions across domains."
+    description: "An open-source initiative encouraging contributions across domains.",
+    image: "/events/diversion.png"
   },
   {
     title: "Alumni Meet",
-    description: "An event reconnecting alumni with faculty and students."
+    description: "An event reconnecting alumni with faculty and students.",
+    image: "/events/alumini-meet.png"
   },
   {
     title: "Ashram Cup Football Tournament 2023",
-    description: "A spirited football tournament with students, faculty, and alumni."
+    description: "A spirited football tournament with students, faculty, and alumni.",
+    image: "/events/ashram-cup.png"
   },
-  {
-    title: "Ashram Cup Cricket Tournament 2024",
-    description: "A historic tournament marking gender inclusivity in sports."
-  }
 ];
-
-
 
 
 const events = [
@@ -136,11 +143,11 @@ const awards = [
     const [currentIndex, setCurrentIndex] = useState(0)
   
     const handlePrev = () => {
-      setCurrentIndex((prevIndex) => (prevIndex === 0 ? awards2023.length - 4 : prevIndex - 1))
+      setCurrentIndex((prevIndex) => (prevIndex === 0 ? event2023.length - 4 : prevIndex - 1))
     }
   
     const handleNext = () => {
-      setCurrentIndex((prevIndex) => (prevIndex === awards2023.length - 4 ? 0 : prevIndex + 1))
+      setCurrentIndex((prevIndex) => (prevIndex === event2023.length - 4 ? 0 : prevIndex + 1))
     }
   
     return (
@@ -198,58 +205,17 @@ const awards = [
       </div>
     )
   }
-  const awards2023 = [
-    {
-      title: "Green Campus Award",
-      organization: "MoEFCC",
-      image: "/2023_1.png",
-    },
-    {
-      title: "Best Innovation in Campus Infrastructure",
-      organization: "AIU",
-      image: "/2023_2.png",
-    },
-    {
-      title: "Excellence in Higher Education Award",
-      organization: "India Today Group",
-      image: "/2023_3.png",
-    },
-    {
-      title: "Best College for Industry-Academia Collaboration",
-      organization: "FICCI",
-      image: "/2023_4.png",
-    },
-    {
-      title: "Best College for Industry-Academia Collaboration",
-      organization: "FICCI",
-      image: "/2023_4.png",
-    },
-    {
-      title: "Best College for Industry-Academia Collaboration",
-      organization: "FICCI",
-      image: "/2023_4.png",
-    },
-    {
-      title: "Best College for Industry-Academia Collaboration",
-      organization: "FICCI",
-      image: "/2023_4.png",
-    },
-    {
-      title: "Best College for Industry-Academia Collaboration",
-      organization: "FICCI",
-      image: "/2023_4.png",
-    },
-  ]
+  
   
   export  function AwardsCarousel2023() {
     const [currentIndex, setCurrentIndex] = useState(0)
   
     const handlePrev = () => {
-      setCurrentIndex((prevIndex) => (prevIndex === 0 ? awards2023.length - 4 : prevIndex - 1))
+      setCurrentIndex((prevIndex) => (prevIndex === 0 ? event2023.length - 4 : prevIndex - 1))
     }
   
     const handleNext = () => {
-      setCurrentIndex((prevIndex) => (prevIndex === awards2023.length - 4 ? 0 : prevIndex + 1))
+      setCurrentIndex((prevIndex) => (prevIndex === event2023.length - 4 ? 0 : prevIndex + 1))
     }
   
     return (
@@ -281,7 +247,7 @@ const awards = [
               transform: `translateX(-${currentIndex * (100 / 4)}%)`,
             }}
           >
-            {awards2023.map((award, index) => (
+            {event2023.map((award, index) => (
               <div
                 key={index}
                 className="flex-none w-1/4"
@@ -297,7 +263,7 @@ const awards = [
                   </div>
                   <div className="p-4">
                     <h3 className="font-medium text-sm mb-1">{award.title}</h3>
-                    <p className="text-sm text-gray-600">{award.organization}</p>
+                    <p className="text-sm text-gray-600">{award.description}</p>
                   </div>
                 </div>
               </div>
@@ -332,8 +298,12 @@ const Events = () => {
       <div className="flex justify-center py-10">
         <Carousel items={events}/>
       </div>
-      <div className="mb-20"><AwardsCarousel /></div>
-      <div className="mb-20"><AwardsCarousel2023/></div>
+      <div className="mb-20">
+        <AwardsCarousel />
+        </div>
+      <div className="mb-20">
+        <AwardsCarousel2023/>
+        </div>
       <Footer/>
     </div>
   );
