@@ -6,6 +6,70 @@ import Image from "next/image";
 import Footer from "@/components/footer";
 // Carousel Component
 import Carousel from "@/components/carousel";
+
+
+const event2023 = [
+  {
+    title: "IEM-UEM Kolkata Marathon 2023",
+    description: "A major marathon with over 1,500 participants."
+  },
+  {
+    title: "IEMPACT 2023",
+    description: "The annual cultural fest featuring ten diverse events."
+  },
+  {
+    title: "Innovación 2023",
+    description: "A significant technical fest showcasing robotics and hackathons."
+  },
+  {
+    title: "SMART Maker Festival 2023",
+    description: "An international event gathering tech enthusiasts and inventors."
+  },
+  {
+    title: "IEM-MUN 2022",
+    description: "The ninth edition of the Model United Nations, conducted offline."
+  },
+  {
+    title: "Sports Day",
+    description: "An annual event promoting physical fitness and sportsmanship."
+  },
+  {
+    title: "Farewell Party",
+    description: "A heartfelt farewell with cultural performances and speeches."
+  },
+  {
+    title: "Teacher's Day Celebration",
+    description: "A cultural event honoring teachers with performances."
+  },
+  {
+    title: "Agomoni Festival",
+    description: "An annual celebration marking the arrival of Maa Durga."
+  },
+  {
+    title: "Rabindra Jayanti",
+    description: "A tribute to Rabindranath Tagore with cultural performances."
+  },
+  {
+    title: "DIVERSION 2023",
+    description: "An open-source initiative encouraging contributions across domains."
+  },
+  {
+    title: "Alumni Meet",
+    description: "An event reconnecting alumni with faculty and students."
+  },
+  {
+    title: "Ashram Cup Football Tournament 2023",
+    description: "A spirited football tournament with students, faculty, and alumni."
+  },
+  {
+    title: "Ashram Cup Cricket Tournament 2024",
+    description: "A historic tournament marking gender inclusivity in sports."
+  }
+];
+
+
+
+
 const events = [
   {
     title: "Saraswati Puja",
@@ -16,6 +80,16 @@ const events = [
     title: "Another Event",
     description: "Description for another event.",
     image: "/1st_event.png",
+  },
+  {
+    title: " Event",
+    description: "Description for another event.",
+    image: "/3rd_event.png",
+  },
+  {
+    title: " Event",
+    description: "Description for another event.",
+    image: "/3rd_event.png",
   },
   {
     title: " Event",
@@ -39,6 +113,16 @@ const awards = [
       title: "Excellence in Higher Education Award",
       description: "India Today Group",
       image: "/2024_3.png", // Replace with actual image path
+    },
+    {
+      title: "Best College for Industry-Academia Collaboration",
+      description: "NCCFI",
+      image: "/2024_4.png", // Replace with actual image path
+    },
+    {
+      title: "Best College for Industry-Academia Collaboration",
+      description: "NCCFI",
+      image: "/2024_4.png", // Replace with actual image path
     },
     {
       title: "Best College for Industry-Academia Collaboration",
@@ -129,6 +213,21 @@ const awards = [
       title: "Excellence in Higher Education Award",
       organization: "India Today Group",
       image: "/2023_3.png",
+    },
+    {
+      title: "Best College for Industry-Academia Collaboration",
+      organization: "FICCI",
+      image: "/2023_4.png",
+    },
+    {
+      title: "Best College for Industry-Academia Collaboration",
+      organization: "FICCI",
+      image: "/2023_4.png",
+    },
+    {
+      title: "Best College for Industry-Academia Collaboration",
+      organization: "FICCI",
+      image: "/2023_4.png",
     },
     {
       title: "Best College for Industry-Academia Collaboration",
