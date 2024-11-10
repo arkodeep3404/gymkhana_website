@@ -1,11 +1,13 @@
 "use client";
 import Navbar from "@/components/navbar";
 import React, { useState } from "react";
-import { ChevronLeft, ChevronRight } from "react-feather";
 import Image from "next/image";
 import Footer from "@/components/footer";
-// Carousel Component
 import Carousel from "@/components/carousel";
+import ExpandableCardDemo from "@/components/blocks/expandable-card-demo-grid";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
 const events = [
   {
     title: "Saraswati Puja",
@@ -23,6 +25,7 @@ const events = [
     image: "/3rd_event.png",
   },
 ];
+
 
 const awards = [
     {
@@ -209,6 +212,9 @@ const awards = [
     )
   }
 // Events Page
+
+
+
 const Events = () => {
   return (
     <div>
@@ -229,13 +235,14 @@ const Events = () => {
         </div>
       </div>
 
-      {/* Carousel Section */}
       <div className="flex justify-center py-10">
-        <Carousel items={events}/>
+        <Carousel items={events} />
       </div>
-      <div className="mb-20"><AwardsCarousel /></div>
-      <div className="mb-20"><AwardsCarousel2023/></div>
-      <Footer/>
+
+      <AwardsSection title="2024 Awards" awards={awards2024} />
+      <AwardsSection title="2023 Awards" awards={awards2023} />
+
+      <Footer />
     </div>
   );
 };
