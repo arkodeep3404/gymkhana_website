@@ -4,77 +4,69 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "react-feather";
 import Image from "next/image";
 import Footer from "@/components/footer";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Button } from '@/components/ui/button'
 // Carousel Component
 import Carousel from "@/components/carousel";
+interface Award {
+  title: string
+  description: string
+  image: string
+  details: string
+}
 
 
-const event2023 = [
+const awards2023: Award[] = [
   {
-    title: "IEM-UEM Kolkata Marathon 2023",
-    description: "A major marathon with over 1,500 participants.",
-    image: "/events/marathon.png"
+    title: " IEM-UEM Kolkata Marathon ",
+    description: "MoEFCC",
+    image: "/events/.png",
+    details: "Awarded for implementing sustainable practices and promoting environmental awareness on campus."
   },
   {
-    title: "IEMPACT 2023",
-    description: "The annual cultural fest featuring ten diverse events.",
-    image: "/events/iempact-fest.png"
+    title: "Best Innovation in Campus Infrastructure",
+    description: "AIU",
+    image: "/awards/2.png",
+    details: "Recognized for cutting-edge facilities and innovative use of technology in campus infrastructure."
   },
   {
-    title: "Innovación 2023",
-    description: "A significant technical fest showcasing robotics and hackathons.",
-    image: "/events/innovcion.png"
+    title: "Excellence in Higher Education Award",
+    description: "India Today Group",
+    image: "/awards/3.png",
+    details: "Honored for outstanding contributions to higher education and academic excellence."
   },
   {
-    title: "SMART Maker Festival 2023",
-    description: "An international event gathering tech enthusiasts and inventors.",
-    image: "/events/smart-maker.png"
+    title: "Best College for Industry-Academia Collaboration",
+    description: "FICCI",
+    image: "/awards/4.png",
+    details: "Acknowledged for fostering strong partnerships between industry and academia, enhancing student employability."
   },
   {
-    title: "IEM-MUN 2022",
-    description: "The ninth edition of the Model United Nations, conducted offline.",
-    image: "/events/iem-mun.png"
+    title: "Research Excellence Award",
+    description: "UGC",
+    image: "/awards/5.png",
+    details: "Recognized for groundbreaking research contributions across various disciplines."
   },
   {
-    title: "Sports Day",
-    description: "An annual event promoting physical fitness and sportsmanship.",
-    image: "/events/sports-day.png"
+    title: "Best Student Support Services",
+    description: "MHRD",
+    image: "/awards/6.png",
+    details: "Awarded for providing exceptional support services to students, enhancing their overall college experience."
   },
   {
-    title: "Farewell Party",
-    description: "A heartfelt farewell with cultural performances and speeches.",
-    image: "/events/farewell.png"
+    title: "Innovation in Teaching Methodology",
+    description: "AICTE",
+    image: "/awards/7.png",
+    details: "Honored for implementing innovative teaching methods that enhance student learning and engagement."
   },
   {
-    title: "Teacher's Day Celebration",
-    description: "A cultural event honoring teachers with performances.",
-    image: "/events/teachers-day.png"
+    title: "Outstanding Sports Facilities",
+    description: "Sports Authority of India",
+    image: "/awards/8.png",
+    details: "Recognized for state-of-the-art sports facilities and promoting sports excellence among students."
   },
-  {
-    title: "Agomoni Festival",
-    description: "An annual celebration marking the arrival of Maa Durga.",
-    image: "/events/agonomi.png"
-  },
-  {
-    title: "Rabindra Jayanti",
-    description: "A tribute to Rabindranath Tagore with cultural performances.",
-    image: "/events/rabindranth-jayanth.png"
-  },
-  {
-    title: "DIVERSION 2023",
-    description: "An open-source initiative encouraging contributions across domains.",
-    image: "/events/diversion.png"
-  },
-  {
-    title: "Alumni Meet",
-    description: "An event reconnecting alumni with faculty and students.",
-    image: "/events/alumini-meet.png"
-  },
-  {
-    title: "Ashram Cup Football Tournament 2023",
-    description: "A spirited football tournament with students, faculty, and alumni.",
-    image: "/events/ashram-cup.png"
-  },
-];
+]
+
 
 
 const events = [
@@ -105,174 +97,110 @@ const events = [
   },
 ];
 
-const awards = [
-    {
-      title: "Green Campus Award",
-      description: "MHRD, FICCI",
-      image: "/2024_1.png", // Replace with actual image path
-    },
-    {
-      title: "Best Innovation in Campus Infrastructure",
-      description: "AIU",
-      image: "/2024_2.png", // Replace with actual image path
-    },
-    {
-      title: "Excellence in Higher Education Award",
-      description: "India Today Group",
-      image: "/2024_3.png", // Replace with actual image path
-    },
-    {
-      title: "Best College for Industry-Academia Collaboration",
-      description: "NCCFI",
-      image: "/2024_4.png", // Replace with actual image path
-    },
-    {
-      title: "Best College for Industry-Academia Collaboration",
-      description: "NCCFI",
-      image: "/2024_4.png", // Replace with actual image path
-    },
-    {
-      title: "Best College for Industry-Academia Collaboration",
-      description: "NCCFI",
-      image: "/2024_4.png", // Replace with actual image path
-    },
-    // Add more awards as needed
-  ];
+
   
-  const AwardsCarousel = () => {
-    const [currentIndex, setCurrentIndex] = useState(0)
-  
-    const handlePrev = () => {
-      setCurrentIndex((prevIndex) => (prevIndex === 0 ? event2023.length - 4 : prevIndex - 1))
-    }
-  
-    const handleNext = () => {
-      setCurrentIndex((prevIndex) => (prevIndex === event2023.length - 4 ? 0 : prevIndex + 1))
-    }
-  
-    return (
-      <div className="w-full max-w-7xl mx-auto px-6 py-8">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold">2024</h2>
-          <div className="flex gap-2">
-            <button
-              onClick={handlePrev}
-              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-              aria-label="Previous awards"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
-              aria-label="Next awards"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-        
-        <div className="relative overflow-hidden">
-          <div
-            className="flex gap-6 transition-transform duration-300 ease-in-out"
-            style={{
-              transform: `translateX(-${currentIndex * (100 / 4)}%)`,
-            }}
+
+export function AwardsCarousel2023() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [selectedAward, setSelectedAward] = useState<Award | null>(null)
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? awards2023.length - 4 : prevIndex - 1))
+  }
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === awards2023.length - 4 ? 0 : prevIndex + 1))
+  }
+
+  const openAwardDetails = (award: Award) => {
+    setSelectedAward(award)
+  }
+
+  const closeAwardDetails = () => {
+    setSelectedAward(null)
+  }
+
+  return (
+    <div className="w-full max-w-7xl mx-auto px-6 py-8">
+      <div className="flex items-center justify-between mb-8">
+        <h2 className="text-2xl font-bold">2023 Awards</h2>
+        <div className="flex gap-2">
+          <Button
+            onClick={handlePrev}
+            variant="outline"
+            size="icon"
+            aria-label="Previous awards"
+            className=""
           >
-            {awards.map((award, index) => (
-              <div
-                key={index}
-                className="flex-none w-1/4"
-              >
-                <div className="bg-white rounded-lg overflow-hidden">
-                  <div className="relative aspect-[4/3]">
-                    <Image
-                      src={award.image}
-                      alt={award.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-medium text-sm mb-1">{award.title}</h3>
-                    <p className="text-sm text-gray-600">{award.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+            <ChevronLeft className="w-5 h-5" />
+          </Button>
+          <Button
+            onClick={handleNext}
+            variant="default"
+            size="icon"
+            aria-label="Next awards"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </Button>
         </div>
       </div>
-    )
-  }
-  
-  
-  export  function AwardsCarousel2023() {
-    const [currentIndex, setCurrentIndex] = useState(0)
-  
-    const handlePrev = () => {
-      setCurrentIndex((prevIndex) => (prevIndex === 0 ? event2023.length - 4 : prevIndex - 1))
-    }
-  
-    const handleNext = () => {
-      setCurrentIndex((prevIndex) => (prevIndex === event2023.length - 4 ? 0 : prevIndex + 1))
-    }
-  
-    return (
-      <div className="w-full max-w-7xl mx-auto px-6 py-8">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold">2023</h2>
-          <div className="flex gap-2">
-            <button
-              onClick={handlePrev}
-              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-              aria-label="Previous awards"
+      
+      <div className="relative overflow-hidden">
+        <div
+          className="flex gap-6 transition-transform duration-300 ease-in-out"
+          style={{
+            transform: `translateX(-${currentIndex * (100 / 4)}%)`,
+          }}
+        >
+          {awards2023.map((award, index) => (
+            <div
+              key={index}
+              className="flex-none w-1/4"
             >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
-              aria-label="Next awards"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-        
-        <div className="relative overflow-hidden">
-          <div
-            className="flex gap-6 transition-transform duration-300 ease-in-out"
-            style={{
-              transform: `translateX(-${currentIndex * (100 / 4)}%)`,
-            }}
-          >
-            {event2023.map((award, index) => (
-              <div
-                key={index}
-                className="flex-none w-1/4"
+              <div 
+                className="bg-white rounded-lg overflow-hidden shadow-md cursor-pointer transition-transform hover:scale-105"
+                onClick={() => openAwardDetails(award)}
               >
-                <div className="bg-white rounded-lg overflow-hidden">
-                  <div className="relative aspect-[4/3]">
-                    <Image
-                      src={award.image}
-                      alt={award.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-medium text-sm mb-1">{award.title}</h3>
-                    <p className="text-sm text-gray-600">{award.description}</p>
-                  </div>
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={award.image}
+                    alt={award.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-medium text-sm mb-1 truncate">{award.title}</h3>
+                  <p className="text-sm text-gray-600 truncate">{award.description}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
-    )
-  }
+
+      <Dialog open={selectedAward !== null} onOpenChange={closeAwardDetails}>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>{selectedAward?.title}</DialogTitle>
+          </DialogHeader>
+          <div className="relative aspect-video mb-4">
+            {selectedAward && (
+              <Image
+                src={selectedAward.image}
+                alt={selectedAward.title}
+                fill
+                className="object-cover rounded-md"
+              />
+            )}
+          </div>
+          <p className="text-sm font-medium mb-2">{selectedAward?.description}</p>
+          <p className="text-sm text-gray-600">{selectedAward?.details}</p>
+        </DialogContent>
+      </Dialog>
+    </div>
+  )
+}
 // Events Page
 const Events = () => {
   return (
@@ -298,9 +226,7 @@ const Events = () => {
       <div className="flex justify-center py-10">
         <Carousel items={events}/>
       </div>
-      <div className="mb-20">
-        <AwardsCarousel />
-        </div>
+     
       <div className="mb-20">
         <AwardsCarousel2023/>
         </div>

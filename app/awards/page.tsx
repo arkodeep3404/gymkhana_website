@@ -144,7 +144,7 @@ const awards = [
   {
     title: "Excellence in Higher Education Award",
     organization: "India Today Group",
-    image: "/awards/27.png",
+    image: "/awards/29.png",
   },
   {
     title: "Best College for Industry-Academia Collaboration",
@@ -163,7 +163,7 @@ const awards = [
   {
     title: "Excellence in Higher Education Award",
     organization: "India Today Group",
-    image: "/awards/33.png",
+    image: "/awards/28.png",
   },
   {
     title: "Best College for Industry-Academia Collaboration",
