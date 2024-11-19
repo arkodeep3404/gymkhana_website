@@ -1,6 +1,6 @@
 "use client";
 import Navbar from "@/components/navbar";
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "react-feather";
 import Image from "next/image";
 import Footer from "@/components/footer";
@@ -24,11 +24,6 @@ const events = [
     image: "/award2.png", // Add additional events as needed
   },
 ];
-const awards1 = Array.from({ length: 38 }, (_, i) => ({
-  image: `/awards/${i + 1}.png`,
-}))
-
-
 
 const awards = [
   {
@@ -150,7 +145,8 @@ const awards = [
     title: "Best College for Industry-Academia Collaboration",
     organization: "FICCI",
     image: "/awards/28.png",
-  },{
+  },
+  {
     title: "Green Campus Award",
     organization: "MoEFCC",
     image: "/awards/31.png",
@@ -190,34 +186,34 @@ const awards = [
     organization: "FICCI",
     image: "/awards/38.png",
   },
-]
-export  function AwardsGridCarousel() {
-  const [currentPage, setCurrentPage] = useState(0)
-  const itemsPerPage = 8
-  const totalPages = Math.ceil(awards.length / itemsPerPage)
+];
+function AwardsGridCarousel() {
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 8;
+  const totalPages = Math.ceil(awards.length / itemsPerPage);
 
   const handlePrev = () => {
-    setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1))
-  }
+    setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
+  };
 
   const handleNext = () => {
-    setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1))
-  }
+    setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
+  };
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowLeft') {
-        handlePrev()
-      } else if (event.key === 'ArrowRight') {
-        handleNext()
+      if (event.key === "ArrowLeft") {
+        handlePrev();
+      } else if (event.key === "ArrowRight") {
+        handleNext();
       }
-    }
+    };
 
-    window.addEventListener('keydown', handleKeyDown)
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [])
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
     <div className="w-full max-w-7xl mx-auto px-6 py-8">
@@ -240,9 +236,9 @@ export  function AwardsGridCarousel() {
           </button>
         </div>
       </div>
-      
+
       <div className="relative overflow-hidden">
-        <div 
+        <div
           className="flex transition-transform duration-300 ease-in-out"
           style={{ transform: `translateX(-${currentPage * 100}%)` }}
         >
@@ -250,7 +246,10 @@ export  function AwardsGridCarousel() {
             <div key={pageIndex} className="w-full flex-shrink-0">
               <div className="grid grid-cols-4 grid-rows-2 gap-6">
                 {awards
-                  .slice(pageIndex * itemsPerPage, (pageIndex + 1) * itemsPerPage)
+                  .slice(
+                    pageIndex * itemsPerPage,
+                    (pageIndex + 1) * itemsPerPage
+                  )
                   .map((award, index) => (
                     <div
                       key={index}
@@ -273,7 +272,7 @@ export  function AwardsGridCarousel() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 // Events Page
 const Events = () => {
@@ -302,7 +301,7 @@ const Events = () => {
         <Carousel items={events} />
       </div>
       <div className="mb-20">
-       <AwardsGridCarousel/>
+        <AwardsGridCarousel />
       </div>
 
       <Footer />
