@@ -147,7 +147,7 @@ export function AwardsCarousel2023() {
   return (
     <div className="w-full max-w-7xl mx-auto px-6 py-8">
       <div className="flex items-center justify-between mb-8">
-        <h2 className="text-2xl font-bold">2023 Awards</h2>
+        <h2 className="text-2xl font-bold">2023 Events</h2>
         <div className="flex gap-2">
           <Button
             onClick={handlePrev}
@@ -238,7 +238,7 @@ const Events = () => {
             Lasting Memories.
           </h1>
         </div>
-        <div className="md:flex-1 flex flex-col justify-evenly md:items-start">
+        <div className="md:flex-1 pl-64  flex flex-col justify-evenly md:items-start">
           <p className="text-lg text-gray-950 text-center md:text-left">
             From athletics to cultural fests, it empowers students
             <br className="hidden md:inline" />

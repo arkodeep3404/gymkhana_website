@@ -288,8 +288,8 @@ const Events = () => {
             Lasting Memories.
           </h1>
         </div>
-        <div className="md:flex-1 flex flex-col justify-evenly md:items-start">
-          <p className="text-sm text-gray-600 text-center md:text-left">
+        <div className="md:flex-1 pl-64  flex flex-col justify-evenly md:items-start">
+          <p className="text-lg text-gray-600 text-center md:text-left">
             From athletics to cultural fests, it empowers students
             <br className="hidden md:inline" />
             to explore their passions beyond academics.

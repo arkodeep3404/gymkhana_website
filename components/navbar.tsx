@@ -51,7 +51,7 @@ export const Navbar = () => {
           whileTap={{ scale: 0.95 }}
           className="hidden md:block"
         >
-          <Button asChild className=" text-black rounded-2xl  bg-[#f4f2fa]">
+          <Button asChild className=" text-black rounded-2xl  bg-[#f4f2fa] hover:bg-[#f4f2fa]">
             <Link href="/about" className="flex items-center">
               Get in Touch<span className="ml-2 ">→</span>
             </Link>
