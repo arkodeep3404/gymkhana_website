@@ -118,7 +118,7 @@ const Carousel = ({
 
           {/* Main Image */}
           <div
-            className="relative mx-auto overflow-hidden rounded-lg shadow-xl z-10"
+            className="relative mx-auto overflow-hidden rounded-3xl shadow-xl z-10"
             style={{
               width: `${mainImageWidth}px`,
               height: `${mainImageHeight}px`,
@@ -137,7 +137,7 @@ const Carousel = ({
                 height={500}
                 width={500}
               />
-              <div className="absolute inset-0 border-4 border-blue-500 rounded-lg"></div>
+              <div className="absolute inset-0 border-4  rounded-lg"></div>
             </div>
           </div>
 

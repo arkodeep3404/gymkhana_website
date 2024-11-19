@@ -38,7 +38,7 @@ export const Navbar = () => {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-colors"
+              className="text-xl font-medium text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-colors"
             >
               {item.label}
             </Link>
@@ -51,9 +51,9 @@ export const Navbar = () => {
           whileTap={{ scale: 0.95 }}
           className="hidden md:block"
         >
-          <Button asChild>
+          <Button asChild className=" text-black rounded-2xl  bg-[#f4f2fa]">
             <Link href="/about" className="flex items-center">
-              Get in Touch<span className="ml-2">→</span>
+              Get in Touch<span className="ml-2 ">→</span>
             </Link>
           </Button>
         </motion.div>

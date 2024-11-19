@@ -191,7 +191,7 @@ export function AwardsCarousel2023() {
                 src={selectedAward.image}
                 alt={selectedAward.title}
                 fill
-                className="object-cover rounded-md"
+                className="object-cover rounded-3xl"
               />
             )}
           </div>

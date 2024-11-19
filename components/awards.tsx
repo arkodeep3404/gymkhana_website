@@ -1,84 +1,99 @@
-import React from "react";
-import Image from "next/image";
-import award1 from "@/public/award1.png";
-import award2 from "@/public/award2.png";
-import award3 from "@/public/award3.png";
-import award4 from "@/public/award4.png";
+'use client'
 
-const Awards = () => {
+import React from "react"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { ArrowRight } from 'lucide-react'
+
+const awards = [
+  {
+    image: "/award1.png",
+    title: "Green Campus Award",
+    organization: "MoEFCC",
+  },
+  {
+    image: "/award2.png",
+    title: "Best Innovation in Campus Infrastructure",
+    organization: "AIU",
+  },
+  {
+    image: "/award3.png",
+    title: "Excellence in Higher Education Award",
+    organization: "India Today Group",
+  },
+  {
+    image: "/award4.png",
+    title: "Best College for Industry-Academia Collaboration",
+    organization: "FICCI",
+  },
+]
+
+export default function Awards() {
   return (
-    <div className="mt-20 mx-auto px-4">
+    <div className="mt-56 mx-auto px-4">
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-6xl font-bold mb-4">
+        <h1 className="text-2xl md:text-5xl font-bold mb-4 text-center">
           Celebrating Our Journey of Excellence and Impact
         </h1>
-        <p className="mb-8 text-2xl">
+        <p className="mb-8 text-xl md:text-2xl text-center text-muted-foreground">
           Awards received from various organizations and events
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="p-4">
-          <Image
-            src={award1}
-            alt="Event 1"
-            className="w-full h-auto object-cover"
-            width={309}
-            height={309}
-          />
 
-          <h2 className="text-2xl font-bold mb-4 mt-4">Green Campus Award</h2>
-          <p className="mb-8">MoEFCC</p>
-        </div>
-        <div className="p-4">
-          <Image
-            src={award2}
-            alt="Event 1"
-            className="w-full h-auto object-cover"
-            width={309}
-            height={309}
-          />
-
-          <h2 className="text-2xl font-bold mb-4 mt-4">
-            Best Innovation in Campus Infrastructure
-          </h2>
-          <p className="mb-8">AIU</p>
-        </div>
-        <div className="p-4">
-          <Image
-            src={award3}
-            alt="Event 1"
-            className="w-full h-auto object-cover"
-            width={309}
-            height={309}
-          />
-
-          <h2 className="text-2xl font-bold mb-4 mt-4">
-            Excellence in Higher Education Award
-          </h2>
-          <p className="mb-8">India Today Group</p>
-        </div>
-        <div className="p-4">
-          <Image
-            src={award4}
-            alt="Event 1"
-            className="w-full h-auto object-cover"
-            width={309}
-            height={309}
-          />
-
-          <h2 className="text-2xl font-bold mb-4 mt-4">
-            Best College for Industry-Academia Collaboration
-          </h2>
-          <p className="mb-8">FICCI</p>
-        </div>
+      {/* Desktop Grid */}
+      <div className="hidden md:grid md:grid-cols-4 gap-4">
+        {awards.map((award, index) => (
+          <div key={index} className="p-4">
+            <Image
+              src={award.image}
+              alt={award.title}
+              className="w-full h-auto object-cover"
+              width={309}
+              height={309}
+            />
+            <h2 className="text-2xl font-bold mb-4 mt-4">{award.title}</h2>
+            <p className="mb-8 text-muted-foreground">{award.organization}</p>
+          </div>
+        ))}
       </div>
-      <div className="p-20 flex flex-col items-center justify-center">
-        <button className="mt-4 px-4 py-2 bg-[#0740C6] text-white rounded-full">
-          View More →
-        </button>
+
+      {/* Mobile Carousel */}
+      <div className="md:hidden">
+        <Carousel className="w-full max-w-xs mx-auto">
+          <CarouselContent>
+            {awards.map((award, index) => (
+              <CarouselItem key={index}>
+                <div className="p-1">
+                  <Image
+                    src={award.image}
+                    alt={award.title}
+                    className="w-full h-auto object-cover rounded-2xl"
+                    width={309}
+                    height={309}
+                  />
+                  <h2 className="text-xl font-bold mb-2 mt-4">{award.title}</h2>
+                  <p className="mb-4 text-muted-foreground">{award.organization}</p>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselNext className="bg-[#0040FF] hover:bg-[#0036DB] text-white -right-4" />
+          <CarouselPrevious className="bg-[#0040FF] hover:bg-[#0036DB] text-white -left-4" />
+        </Carousel>
+      </div>
+
+      <div className="p-10 md:p-20 flex flex-col items-center justify-center">
+        <Button className="bg-[#0040FF] hover:bg-[#0036DB] text-white rounded-full">
+          View More <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
       </div>
     </div>
-  );
-};
-
-export default Awards;
+  )
+}

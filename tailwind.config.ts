@@ -8,7 +8,10 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-  	extend: {
+  	extend: 
+	{fontFamily: {
+		'poppins': ['Poppins'],
+	 },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -58,6 +61,7 @@ const config: Config = {
   		}
   	}
   },
+  
   plugins: [require("tailwindcss-animate")],
 };
 export default config;
