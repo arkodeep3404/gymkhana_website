@@ -261,7 +261,7 @@ export  function AwardsGridCarousel() {
                           src={award.image}
                           alt={award.title}
                           fill
-                          className="object-cover"
+                          className="object-cover rounded-3xl"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                         />
                       </div>
