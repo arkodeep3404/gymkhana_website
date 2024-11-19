@@ -1,6 +1,6 @@
 "use client";
 import Navbar from "@/components/navbar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight } from "react-feather";
 import Image from "next/image";
 import Footer from "@/components/footer";
@@ -24,91 +24,257 @@ const events = [
     image: "/award2.png", // Add additional events as needed
   },
 ];
+const awards1 = Array.from({ length: 38 }, (_, i) => ({
+  image: `/awards/${i + 1}.png`,
+}))
+
+
 
 const awards = [
   {
     title: "Green Campus Award",
-    description: "MHRD, FICCI",
-    image: "/2024_1.png", // Replace with actual image path
+    organization: "MoEFCC",
+    image: "/awards/1.png",
   },
   {
     title: "Best Innovation in Campus Infrastructure",
-    description: "AIU",
-    image: "/2024_2.png", // Replace with actual image path
+    organization: "AIU",
+    image: "/awards/2.png",
   },
   {
     title: "Excellence in Higher Education Award",
-    description: "India Today Group",
-    image: "/2024_3.png", // Replace with actual image path
+    organization: "India Today Group",
+    image: "/awards/3.png",
   },
   {
     title: "Best College for Industry-Academia Collaboration",
-    description: "NCCFI",
-    image: "/2024_4.png", // Replace with actual image path
+    organization: "FICCI",
+    image: "/awards/4.png",
   },
-  // Add more awards as needed
-];
-
-const AwardsCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  {
+    title: "Green Campus Award",
+    organization: "MoEFCC",
+    image: "/awards/5.png",
+  },
+  {
+    title: "Best Innovation in Campus Infrastructure",
+    organization: "AIU",
+    image: "/awards/6.png",
+  },
+  {
+    title: "Excellence in Higher Education Award",
+    organization: "India Today Group",
+    image: "/awards/7.png",
+  },
+  {
+    title: "Best College for Industry-Academia Collaboration",
+    organization: "FICCI",
+    image: "/awards/8.png",
+  },
+  {
+    title: "Green Campus Award",
+    organization: "MoEFCC",
+    image: "/awards/11.png",
+  },
+  {
+    title: "Best Innovation in Campus Infrastructure",
+    organization: "AIU",
+    image: "/awards/12.png",
+  },
+  {
+    title: "Excellence in Higher Education Award",
+    organization: "India Today Group",
+    image: "/awards/13.png",
+  },
+  {
+    title: "Best College for Industry-Academia Collaboration",
+    organization: "FICCI",
+    image: "/awards/14.png",
+  },
+  {
+    title: "Green Campus Award",
+    organization: "MoEFCC",
+    image: "/awards/15.png",
+  },
+  {
+    title: "Best Innovation in Campus Infrastructure",
+    organization: "AIU",
+    image: "/awards/16.png",
+  },
+  {
+    title: "Excellence in Higher Education Award",
+    organization: "India Today Group",
+    image: "/awards/10.png",
+  },
+  {
+    title: "Best College for Industry-Academia Collaboration",
+    organization: "FICCI",
+    image: "/awards/9.png",
+  },
+  {
+    title: "Green Campus Award",
+    organization: "MoEFCC",
+    image: "/awards/21.png",
+  },
+  {
+    title: "Best Innovation in Campus Infrastructure",
+    organization: "AIU",
+    image: "/awards/22.png",
+  },
+  {
+    title: "Excellence in Higher Education Award",
+    organization: "India Today Group",
+    image: "/awards/23.png",
+  },
+  {
+    title: "Best College for Industry-Academia Collaboration",
+    organization: "FICCI",
+    image: "/awards/24.png",
+  },
+  {
+    title: "Green Campus Award",
+    organization: "MoEFCC",
+    image: "/awards/25.png",
+  },
+  {
+    title: "Best Innovation in Campus Infrastructure",
+    organization: "AIU",
+    image: "/awards/26.png",
+  },
+  {
+    title: "Excellence in Higher Education Award",
+    organization: "India Today Group",
+    image: "/awards/27.png",
+  },
+  {
+    title: "Best College for Industry-Academia Collaboration",
+    organization: "FICCI",
+    image: "/awards/28.png",
+  },{
+    title: "Green Campus Award",
+    organization: "MoEFCC",
+    image: "/awards/31.png",
+  },
+  {
+    title: "Best Innovation in Campus Infrastructure",
+    organization: "AIU",
+    image: "/awards/32.png",
+  },
+  {
+    title: "Excellence in Higher Education Award",
+    organization: "India Today Group",
+    image: "/awards/33.png",
+  },
+  {
+    title: "Best College for Industry-Academia Collaboration",
+    organization: "FICCI",
+    image: "/awards/34.png",
+  },
+  {
+    title: "Green Campus Award",
+    organization: "MoEFCC",
+    image: "/awards/35.png",
+  },
+  {
+    title: "Best Innovation in Campus Infrastructure",
+    organization: "AIU",
+    image: "/awards/36.png",
+  },
+  {
+    title: "Excellence in Higher Education Award",
+    organization: "India Today Group",
+    image: "/awards/37.png",
+  },
+  {
+    title: "Best College for Industry-Academia Collaboration",
+    organization: "FICCI",
+    image: "/awards/38.png",
+  },
+]
+export  function AwardsGridCarousel() {
+  const [currentPage, setCurrentPage] = useState(0)
+  const itemsPerPage = 8
+  const totalPages = Math.ceil(awards.length / itemsPerPage)
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? awards.length - 4 : prevIndex - 1
-    );
-  };
+    setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1))
+  }
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === awards.length - 4 ? 0 : prevIndex + 1
-    );
-  };
+    setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1))
+  }
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') {
+        handlePrev()
+      } else if (event.key === 'ArrowRight') {
+        handleNext()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
 
   return (
-    <div className="mx-10">
-      <h2 className="text-4xl font-bold mb-5">2024</h2>
-      <div className="relative flex items-center">
-        <button
-          onClick={handlePrev}
-          className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
-        >
-          <ChevronLeft />
-        </button>
-
-        <div className="overflow-hidden w-full">
-          <div
-            className="grid grid-cols-4 gap-4 transition-transform duration-300"
-            style={{ transform: `translateX(-${currentIndex * 25}%)` }}
+    <div className="w-full max-w-7xl mx-auto px-6 py-8">
+      <div className="flex items-center justify-between mb-8">
+        <h2 className="text-2xl font-bold">Explore others</h2>
+        <div className="flex gap-2">
+          <button
+            onClick={handlePrev}
+            className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+            aria-label="Previous awards"
           >
-            {awards.map((award, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-lg rounded-lg p-2 text-center"
-              >
-                <Image
-                  src={award.image}
-                  alt={award.title}
-                  width={200}
-                  height={150}
-                  className="object-cover w-full  rounded-lg"
-                />
-                <h3 className="text-lg font-semibold mt-2">{award.title}</h3>
-                <p className="text-gray-600 text-sm">{award.description}</p>
-              </div>
-            ))}
-          </div>
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={handleNext}
+            className="p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+            aria-label="Next awards"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
-        <button
-          onClick={handleNext}
-          className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
+      </div>
+      
+      <div className="relative overflow-hidden">
+        <div 
+          className="flex transition-transform duration-300 ease-in-out"
+          style={{ transform: `translateX(-${currentPage * 100}%)` }}
         >
-          <ChevronRight />
-        </button>
+          {Array.from({ length: totalPages }).map((_, pageIndex) => (
+            <div key={pageIndex} className="w-full flex-shrink-0">
+              <div className="grid grid-cols-4 grid-rows-2 gap-6">
+                {awards
+                  .slice(pageIndex * itemsPerPage, (pageIndex + 1) * itemsPerPage)
+                  .map((award, index) => (
+                    <div
+                      key={index}
+                      className="bg-white rounded-lg overflow-hidden shadow-md"
+                    >
+                      <div className="relative w-full pt-[100%]">
+                        <Image
+                          src={award.image}
+                          alt={award.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                        />
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  );
-};
-
+  )
+}
 // Events Page
 const Events = () => {
   return (
@@ -136,7 +302,7 @@ const Events = () => {
         <Carousel items={events} />
       </div>
       <div className="mb-20">
-        <AwardsCarousel />
+       <AwardsGridCarousel/>
       </div>
 
       <Footer />
