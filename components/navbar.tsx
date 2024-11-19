@@ -1,101 +1,102 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { Menu, X } from "react-feather"; // For mobile menu icon
-import Image from "next/image";
+import React, { useState } from "react"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { Menu, X } from "lucide-react"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export const Navbar = () => {
-  //const [active, setActive] = useState<string | null>("About Us");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const navItems = [
+    { href: "/Home", label: "About Us" },
+    { href: "/Events", label: "Events" },
+    { href: "/awards", label: "Awards" },
+    { href: "/Club", label: "Clubs & Community" },
+    { href: "/Teams", label: "Teams" },
+  ]
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-black py-4">
-      <div className="container mx-auto flex items-center justify-between">
-        {/* Title/Logo */}
-        <div className="text-2xl font-semibold">
-          <Link href="/">
-            <Image
-              src="/logo.png"
-              alt="IEM Kolkata logo"
-              className="w-full h-auto object-cover"
-              height={500}
-              width={500}
-            />
-          </Link>
-        </div>
+    <header className="sticky top-0 z-50 bg-white dark:bg-black py-2 shadow-sm">
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.png"
+            alt="IEM Kolkata logo"
+            width={120}
+            height={60}
+            className="w-auto h-20 object-contain"
+          />
+        </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-4">
-          <Link href="/Home" className="hover:text-blue-500">
-            About Us
-          </Link>
-          <Link href="/Events" className="hover:text-blue-500">
-            Events
-          </Link>
-          <Link href="/awards" className="hover:text-blue-500">
-            Awards
-          </Link>
-          <Link href="/Club" className="hover:text-blue-500">
-            Clubs & Community
-          </Link>
+        <nav className="hidden md:flex space-x-6">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm font-medium text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
         {/* Call-to-action Button */}
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="hidden md:block bg-black text-white px-4 py-2 rounded-full hover:bg-neutral-800"
+          className="hidden md:block"
         >
-          <Link href="/about" className="flex items-center">
-            Get in Touch<span className="ml-2">→</span>
-          </Link>
+          <Button asChild>
+            <Link href="/about" className="flex items-center">
+              Get in Touch<span className="ml-2">→</span>
+            </Link>
+          </Button>
         </motion.div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-black dark:text-white focus:outline-none"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </Button>
       </div>
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <nav className="md:hidden bg-white dark:bg-black">
-          <ul className="space-y-4 p-4">
+        <nav className="md:hidden bg-white dark:bg-black border-t dark:border-gray-800">
+          <ul className="space-y-2 p-4">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
             <li>
-              <Link href="/about-us" className="text-black dark:text-white">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link href="/events" className="text-black dark:text-white">
-                Events
-              </Link>
-            </li>
-            <li>
-              <Link href="/awards" className="text-black dark:text-white">
-                Awards
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/clubs-community"
-                className="text-black dark:text-white"
-              >
-                Clubs & Community
-              </Link>
+              <Button asChild className="w-full mt-4">
+                <Link href="/about" className="flex items-center justify-center">
+                  Get in Touch<span className="ml-2">→</span>
+                </Link>
+              </Button>
             </li>
           </ul>
         </nav>
       )}
     </header>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

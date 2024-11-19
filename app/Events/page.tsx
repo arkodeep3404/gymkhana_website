@@ -20,8 +20,8 @@ const awards2023: Award[] = [
   {
     title: " IEM-UEM Kolkata Marathon ",
     description: "MoEFCC",
-    image: "/events/.png",
-    details: "Awarded for implementing sustainable practices and promoting environmental awareness on campus."
+    image: "/events/marathon.png",
+    details: "The IEM-UEM Kolkata Marathon 2023, a distinctive event organized by the students of the Institute of Engineering & Management, Kolkata, successfully held its sixth edition on Sunday, January 29th. Known as the Indian Warriors, these students achieved their goal of raising awareness about the new normal and aiding people in adapting to it. Over 1,500 participation slots were sold out a week in advance.Notable participants included a person running with a prosthetic leg, a lady completing the 10K run with her baby in a stroller, a 3-year-old child finishing the 5K run. The event featured three races: a half marathon, a 10K run, and a 5K run. Cash prizes were awarded to the winners, and medals were given to all finishers.According to runner feedback, the best aspects of the event were the enthusiastic cheering from college volunteers and the abundant hydration stations, with water booths every 500 meters ensuring runners stayed motivated throughout the race, right until the last participant crossed the finish line."
   },
   {
     title: "Best Innovation in Campus Infrastructure",
@@ -130,7 +130,7 @@ export function AwardsCarousel2023() {
             variant="outline"
             size="icon"
             aria-label="Previous awards"
-            className=""
+            
           >
             <ChevronLeft className="w-5 h-5" />
           </Button>
@@ -139,6 +139,7 @@ export function AwardsCarousel2023() {
             variant="default"
             size="icon"
             aria-label="Next awards"
+            className="bg-blue-500 hover:bg-blue-700"
           >
             <ChevronRight className="w-5 h-5" />
           </Button>
