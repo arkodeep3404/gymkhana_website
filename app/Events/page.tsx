@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "react-feather";
 import Image from "next/image";
 import Footer from "@/components/footer";
+import { FaClock } from 'react-icons/fa';
+import { FaCalendarAlt } from 'react-icons/fa';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import {
   Dialog,
   DialogContent,
@@ -231,26 +234,83 @@ function AwardsCarousel2023() {
       </div>
 
       <Dialog open={selectedAward !== null} onOpenChange={closeAwardDetails}>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>{selectedAward?.title}</DialogTitle>
-          </DialogHeader>
-          <div className="relative aspect-video mb-4">
-            {selectedAward && (
-              <Image
-                src={selectedAward.image}
-                alt={selectedAward.title}
-                fill
-                className="object-cover rounded-3xl"
-              />
-            )}
+  <DialogContent className="sm:max-w-[1000px] h-[450px] p-6 rounded-[10px]">
+    <div className="flex">
+      {/* Left side: Image Carousel */}
+      <div className="w-1/3 mr-6">
+        {/* Main Image */}
+        {selectedAward?.image && (
+          <div className="relative mb-4">
+            <Image
+              src={selectedAward.image} // Using the same image for the main image
+              alt={selectedAward?.title}
+              width={300}
+              height={300}
+              className="object-cover rounded-[10px] w-full"
+            />
           </div>
-          <p className="text-sm font-medium mb-2">
-            {selectedAward?.description}
-          </p>
-          <p className="text-sm text-gray-600">{selectedAward?.details}</p>
-        </DialogContent>
-      </Dialog>
+        )}
+
+        {/* Thumbnail Images */}
+        <div className="flex space-x-4">
+          {[...Array(4)].map((_, index) => (
+            <div
+              key={index}
+              className="relative w-16 h-16 cursor-pointer rounded-[10px] overflow-hidden"
+            >
+              <Image
+                src={selectedAward?.image || ''}
+                alt={`Thumbnail ${index + 1}`}
+                fill
+                className="object-cover rounded-[10px]"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right side: Text content */}
+      <div className="flex-1">
+        <DialogHeader>
+          <DialogTitle className="text-xl font-bold">{selectedAward?.title}</DialogTitle>
+        </DialogHeader>
+
+        {/* Description */}
+        <p className="text-md font-medium mb-2">{selectedAward?.description}</p>
+
+        {/* Infomatics Section with Date, Time, Location */}
+        <h3 className="text-lg font-normal mt-4 mb-2">Infomatics</h3>
+        <div className="flex space-x-6 mb-2">
+          {/* Date Icon and Info */}
+          <div className="flex items-center space-x-2">
+          <FaCalendarAlt />
+            <span className="text-sm">Oct 24</span>
+          </div>
+
+          {/* Time Icon and Info */}
+          <div className="flex items-center space-x-2">
+          <FaClock />
+            <span className="text-sm">9pm</span>
+          </div>
+
+          {/* Location Icon and Info */}
+          <div className="flex items-center space-x-2">
+          <FaMapMarkerAlt />
+            <span className="text-sm">Kolkata</span>
+          </div>
+        </div>
+
+        {/* Key Moments Section */}
+        <h3 className="text-lg font-normal mt-4 mb-2">Key Moments</h3>
+        <p className="text-sm text-gray-600">{selectedAward?.details}</p>
+      </div>
+    </div>
+  </DialogContent>
+</Dialog>
+
+
+
+
     </div>
   );
 }
