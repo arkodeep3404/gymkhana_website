@@ -32,10 +32,10 @@ type CarouselProps = {
 
 const Carousel = ({
   items,
-  mainImageHeight = 500,
-  mainImageWidth = 900,
-  sideImageHeight = 450,
-  sideImageWidth = 288,
+  mainImageHeight = 680,
+  mainImageWidth = 1300,
+  sideImageHeight = 500,
+  sideImageWidth = 160,
   showArrows = true,
   showText = true,
   autoPlay = false,
@@ -47,7 +47,7 @@ const Carousel = ({
   navigationClassName = "",
   transitionDuration = 500,
   sideImageOpacity = 60,
-  peekSize = 32,
+  peekSize = 5,
   backgroundColor = "bg-white",
 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -100,16 +100,12 @@ const Carousel = ({
               opacity: isTransitioning ? 0 : sideImageOpacity / 100,
               transform: isTransitioning
                 ? "translateX(-100%)"
-                : `translateX(${peekSize}px)`,
+                : `translateX(${peekSize}px) rotate(-3deg)`,
             }}
           >
             <Image
-              src={
-                items[(currentIndex - 1 + items.length) % items.length].image
-              }
-              alt={
-                items[(currentIndex - 1 + items.length) % items.length].title
-              }
+              src={items[(currentIndex - 1 + items.length) % items.length].image}
+              alt={items[(currentIndex - 1 + items.length) % items.length].title}
               className={`rounded-lg object-cover w-full h-full shadow-lg ${imageClassName}`}
               height={500}
               width={500}
@@ -118,7 +114,7 @@ const Carousel = ({
 
           {/* Main Image */}
           <div
-            className="relative mx-auto overflow-hidden rounded-lg shadow-xl z-10"
+            className="relative mx-auto overflow-hidden rounded-3xl shadow-xl z-10"
             style={{
               width: `${mainImageWidth}px`,
               height: `${mainImageHeight}px`,
@@ -137,7 +133,7 @@ const Carousel = ({
                 height={500}
                 width={500}
               />
-              <div className="absolute inset-0 border-4 border-blue-500 rounded-lg"></div>
+              <div className="absolute inset-0 border-4 rounded-lg"></div>
             </div>
           </div>
 
@@ -150,7 +146,7 @@ const Carousel = ({
               opacity: isTransitioning ? 0 : sideImageOpacity / 100,
               transform: isTransitioning
                 ? "translateX(100%)"
-                : `translateX(-${peekSize}px)`,
+                : `translateX(-${peekSize}px) rotate(3deg)`,
             }}
           >
             <Image
@@ -161,39 +157,44 @@ const Carousel = ({
               width={500}
             />
           </div>
-
-          {/* Navigation Buttons */}
-          {showArrows && (
-            <>
-              <button
-                onClick={handlePrev}
-                className={`absolute left-8 z-20 p-4 bg-white/90 rounded-full hover:bg-white 
-                  transition-colors disabled:opacity-50 shadow-lg ${navigationClassName}`}
-                disabled={isTransitioning}
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={handleNext}
-                className={`absolute right-8 z-20 p-4 bg-white/90 rounded-full hover:bg-white 
-                  transition-colors disabled:opacity-50 shadow-lg ${navigationClassName}`}
-                disabled={isTransitioning}
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            </>
-          )}
         </div>
 
-        {/* Text Content */}
+        {/* Text Content with Navigation */}
         {showText && (
-          <div className="text-center mt-6">
-            <h2 className={`text-2xl font-semibold ${titleClassName}`}>
-              {items[currentIndex].title}
-            </h2>
-            <p className={`text-gray-600 mt-2 ${descriptionClassName}`}>
-              {items[currentIndex].description}
-            </p>
+          <div className="text-center mt-6 flex items-center justify-center space-x-8">
+            {/* Left Navigation Button */}
+            {showArrows && (
+              <button
+                onClick={handlePrev}
+                className={`p-2 bg-blue-500 rounded-full hover:bg-blue-600 
+                    transition-colors disabled:opacity-50 shadow-lg ${navigationClassName}`}
+                disabled={isTransitioning}
+              >
+                <ChevronLeft className="w-6 h-6 text-white" />
+              </button>
+            )}
+
+            {/* Title and Description */}
+            <div>
+              <h2 className={`text-2xl font-semibold ${titleClassName}`}>
+                {items[currentIndex].title}
+              </h2>
+              <p className={`text-gray-600 mt-2 ${descriptionClassName}`}>
+                {items[currentIndex].description}
+              </p>
+            </div>
+
+            {/* Right Navigation Button */}
+            {showArrows && (
+              <button
+                onClick={handleNext}
+                className={`p-2 bg-blue-500 rounded-full hover:bg-blue-600 
+                    transition-colors disabled:opacity-50 shadow-lg ${navigationClassName}`}
+                disabled={isTransitioning}
+              >
+                <ChevronRight className="w-6 h-6 text-white" />
+              </button>
+            )}
           </div>
         )}
       </div>

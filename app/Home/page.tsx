@@ -6,7 +6,7 @@ import Hero from "@/components/top";
 import Footer from "@/components/footer";
 export default function Home() {
   return (
-    <div className="p-10">
+    <div className="">
       <Navbar />
       <Hero/>
       <FeaturedEvents />
