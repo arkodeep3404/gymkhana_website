@@ -174,8 +174,8 @@ function AwardsCarousel2023() {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 py-8">
-      <div className="flex items-center justify-between mb-8">
+    <div className="w-full max-w-7xl mx-auto px-6 py-8 ">
+      <div className="flex items-center justify-between mb-8 ">
         <h2 className="text-2xl font-bold">2023 Events</h2>
         <div className="flex gap-2">
           <Button
@@ -198,7 +198,7 @@ function AwardsCarousel2023() {
         </div>
       </div>
 
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden p-5">
         <div
           className="flex gap-6 transition-transform duration-300 ease-in-out"
           style={{
@@ -234,79 +234,79 @@ function AwardsCarousel2023() {
       </div>
 
       <Dialog open={selectedAward !== null} onOpenChange={closeAwardDetails}>
-  <DialogContent className="sm:max-w-[1000px] h-[450px] p-6 rounded-[10px]">
-    <div className="flex">
-      {/* Left side: Image Carousel */}
-      <div className="w-1/3 mr-6">
-        {/* Main Image */}
-        {selectedAward?.image && (
-          <div className="relative mb-4">
-            <Image
-              src={selectedAward.image} // Using the same image for the main image
-              alt={selectedAward?.title}
-              width={300}
-              height={300}
-              className="object-cover rounded-[10px] w-full"
-            />
-          </div>
-        )}
+        <DialogContent className="sm:max-w-[1000px] h-[450px] p-6 rounded-[10px]">
+          <div className="flex">
+            {/* Left side: Image Carousel */}
+            <div className="w-1/3 mr-6">
+              {/* Main Image */}
+              {selectedAward?.image && (
+                <div className="relative mb-4">
+                  <Image
+                    src={selectedAward.image} // Using the same image for the main image
+                    alt={selectedAward?.title}
+                    width={300}
+                    height={300}
+                    className="object-cover rounded-[10px] w-full"
+                  />
+                </div>
+              )}
 
-        {/* Thumbnail Images */}
-        <div className="flex space-x-4">
-          {[...Array(4)].map((_, index) => (
-            <div
-              key={index}
-              className="relative w-16 h-16 cursor-pointer rounded-[10px] overflow-hidden"
-            >
-              <Image
-                src={selectedAward?.image || ''}
-                alt={`Thumbnail ${index + 1}`}
-                fill
-                className="object-cover rounded-[10px]"
-              />
+              {/* Thumbnail Images */}
+              <div className="flex space-x-4">
+                {[...Array(4)].map((_, index) => (
+                  <div
+                    key={index}
+                    className="relative w-16 h-16 cursor-pointer rounded-[10px] overflow-hidden"
+                  >
+                    <Image
+                      src={selectedAward?.image || ''}
+                      alt={`Thumbnail ${index + 1}`}
+                      fill
+                      className="object-cover rounded-[10px]"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Right side: Text content */}
-      <div className="flex-1">
-        <DialogHeader>
-          <DialogTitle className="text-xl font-bold">{selectedAward?.title}</DialogTitle>
-        </DialogHeader>
+            {/* Right side: Text content */}
+            <div className="flex-1">
+              <DialogHeader>
+                <DialogTitle className="text-xl font-bold">{selectedAward?.title}</DialogTitle>
+              </DialogHeader>
 
-        {/* Description */}
-        <p className="text-md font-medium mb-2">{selectedAward?.description}</p>
+              {/* Description */}
+              <p className="text-md font-medium mb-2">{selectedAward?.description}</p>
 
-        {/* Infomatics Section with Date, Time, Location */}
-        <h3 className="text-lg font-normal mt-4 mb-2">Infomatics</h3>
-        <div className="flex space-x-6 mb-2">
-          {/* Date Icon and Info */}
-          <div className="flex items-center space-x-2">
-          <FaCalendarAlt />
-            <span className="text-sm">Oct 24</span>
+              {/* Infomatics Section with Date, Time, Location */}
+              <h3 className="text-lg font-normal mt-4 mb-2">Infomatics</h3>
+              <div className="flex space-x-6 mb-2">
+                {/* Date Icon and Info */}
+                <div className="flex items-center space-x-2">
+                  <FaCalendarAlt />
+                  <span className="text-sm">Oct 24</span>
+                </div>
+
+                {/* Time Icon and Info */}
+                <div className="flex items-center space-x-2">
+                  <FaClock />
+                  <span className="text-sm">9pm</span>
+                </div>
+
+                {/* Location Icon and Info */}
+                <div className="flex items-center space-x-2">
+                  <FaMapMarkerAlt />
+                  <span className="text-sm">Kolkata</span>
+                </div>
+              </div>
+
+              {/* Key Moments Section */}
+              <h3 className="text-lg font-normal mt-4 mb-2">Key Moments</h3>
+              <p className="text-sm text-gray-600">{selectedAward?.details}</p>
+            </div>
           </div>
-
-          {/* Time Icon and Info */}
-          <div className="flex items-center space-x-2">
-          <FaClock />
-            <span className="text-sm">9pm</span>
-          </div>
-
-          {/* Location Icon and Info */}
-          <div className="flex items-center space-x-2">
-          <FaMapMarkerAlt />
-            <span className="text-sm">Kolkata</span>
-          </div>
-        </div>
-
-        {/* Key Moments Section */}
-        <h3 className="text-lg font-normal mt-4 mb-2">Key Moments</h3>
-        <p className="text-sm text-gray-600">{selectedAward?.details}</p>
-      </div>
-    </div>
-  </DialogContent>
-</Dialog>
+        </DialogContent>
+      </Dialog>
 
 
 
