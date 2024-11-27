@@ -1,55 +1,45 @@
-import React from 'react';
-import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa'; 
+import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
 
-const Footer: React.FC = () => {
+export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white rounded-2xl py-4">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-start">
-        {/* Address Section */}
-        <div className="w-full md:w-1/2 mb-4 md:mb-0">
-          <h1 className="text-xl font-bold">Gymkhana.</h1>
-         
+    <footer className="bg-[#1C1C1C] text-white rounded-[32px] py-8 sm:py-16 px-6 sm:px-20 w-full max-w-[1401px] mx-auto my-8 sm:my-16 font-['Poppins']">
+      <div className="flex flex-col sm:flex-row justify-between items-start gap-8 sm:gap-4 mb-12 sm:mb-24">
+        <div className="w-full sm:w-auto">
+          <h1 className="text-2xl font-normal">Gymkhana.</h1>
         </div>
-        <div className="w-full md:w-1/2 mb-4 md:mb-0">
-          <h1 className="text-lg font-bold">Address</h1>
-          <p className="mt-2">
-           
+        <div className="w-full sm:w-auto space-y-4">
+          <h2 className="text-base font-medium">Address</h2>
+          <p className="text-sm font-light opacity-80 leading-relaxed">
             Y2, EP Block, Sector V,<br />
             Bidhannagar, Kolkata,<br />
             West Bengal 700091.
           </p>
         </div>
-        
-        {/* Contact Section */}
-        <div className="w-full md:w-1/2">
-          <h2 className="font-semibold">Contact</h2>
-          <p>Student Head - 3243242432</p>
-          <p>Faculty Head - 3243242432</p>
-          <p>Fax - 12313</p>
-          <p>Telephone - 033-123213</p>
+        <div className="w-full sm:w-auto space-y-4">
+          <h2 className="text-base font-medium">Contact</h2>
+          <div className="text-sm font-light opacity-80 space-y-2">
+            <p>Student Head - 3243242432</p>
+            <p>Faculty Head - 3243242432</p>
+            <p>Fax - 12313</p>
+            <p>Telephone - 033-123213</p>
+          </div>
         </div>
       </div>
-
-      {/* Divider Line */}
-      <hr className="border-gray-600 my-6" />
-
-      {/* Copyright & Social Icons */}
-      <div className="flex justify-between items-center">
-        <p className='pl-20'>© Copyright reserved 2025</p>
-        <div className="flex space-x-4 pr-10 ">
-          <a href="#" className="text-white hover:text-gray-400">
-            <FaFacebookF size={20} /> 
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-white/10">
+        <p className="text-sm font-light opacity-80 order-2 sm:order-1">© Copyright reserved 2025</p>
+        <div className="flex gap-6 order-1 sm:order-2">
+          <a href="#" className="opacity-80 hover:opacity-100 transition-opacity">
+            <FaFacebookF size={20} />
           </a>
-          <a href="#" className="text-white hover:text-gray-400">
-            <FaLinkedinIn size={20} /> 
+          <a href="#" className="opacity-80 hover:opacity-100 transition-opacity">
+            <FaLinkedinIn size={20} />
           </a>
-          <a href="#" className="text-white hover:text-gray-400">
-            <FaInstagram size={20} /> 
+          <a href="#" className="opacity-80 hover:opacity-100 transition-opacity">
+            <FaInstagram size={20} />
           </a>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
