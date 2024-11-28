@@ -1,3 +1,6 @@
+/* globals.css */
+
+/* Tailwind's base styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,13 +9,35 @@ body {
   font-family: var(--font-primary), sans-serif;
 }
 
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
 
+@layer components {
+  /* Custom scrollbar styles */
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background-color: #6b7280; /* Tailwind's gray-600 */
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background: #f3f4f6; /* Tailwind's gray-100 */
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-button {
+    display: none; /* Hides the buttons */
+  }
+}
+
+/* Base layer for dark mode and other settings */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -41,6 +66,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
