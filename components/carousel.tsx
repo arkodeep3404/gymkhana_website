@@ -174,16 +174,15 @@ const Carousel = ({
               </button>
             )}
 
-            {/* Title and Description */}
-            <div>
-              <h2 className={`text-2xl font-semibold ${titleClassName}`}>
-                {items[currentIndex].title}
-              </h2>
-              <p className={`text-gray-600 mt-2 ${descriptionClassName}`}>
-                {items[currentIndex].description}
-              </p>
-            </div>
-
+          {/* Title and Description */}
+        <div className="w-[450px] max-w-lg"> {/* Fixed width */}
+          <h2 className={`text-2xl font-semibold ${titleClassName}`}>
+              {items[currentIndex].title}
+          </h2>
+          <p className={`text-gray-600 mt-2 ${descriptionClassName}`}>
+              {items[currentIndex].description}
+          </p>
+        </div>
             {/* Right Navigation Button */}
             {showArrows && (
               <button
