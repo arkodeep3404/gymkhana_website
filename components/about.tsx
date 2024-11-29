@@ -20,7 +20,7 @@ const events = [
 
 const FeaturedEvents = () => {
   return (
-    <div className="mt-20 mx-auto px-4">
+    <div className="mt-20 mx-auto px-52">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* First Column */}
         <div className="flex flex-col items-center md:items-start p-4">
