@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Linkedin } from 'react-feather'
 import { Facebook } from "react-feather"
 import { Twitter } from "react-feather"
+import Image from "next/image"
 
 interface TeamMember {
   name: string
@@ -63,13 +64,13 @@ export default function TeamMembers() {
             <Card key={index} className="overflow-hidden">
               <CardContent className="p-6 flex flex-col items-center">
                 <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-gray-200">
-                  <img
+                <Image
                     src={member.imageUrl}
                     alt={member.name}
-                    className="w-full h-full object-cover"
                     width={128}
                     height={128}
-                  />
+                    className="w-full h-full object-cover"
+                />
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-1">{member.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{member.role}</p>
@@ -116,7 +117,7 @@ function Lagacy()
       <section className="py-12 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-0">Architects of Tomorrow's Legacy</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-0">Architects of Tomorrow&apos;s Legacy</h2>
           <p className="text-muted-foreground md:text-right max-w-md">
           Fueled by passion and innovation, they bring ideas to life. Their efforts drive the energy and spirit of our community forward.
           </p>
@@ -127,13 +128,13 @@ function Lagacy()
             <Card key={index} className="overflow-hidden">
               <CardContent className="p-6 flex flex-col items-center">
                 <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-gray-200">
-                  <img
-                    src="/team/director.svg"
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                    width={128}
-                    height={128}
-                  />
+                <Image
+                src="/team/director.svg"
+                alt={member.name}
+                width={128}
+                height={128}
+                className="w-full h-full object-cover"
+                />
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-1">Prof. Dr. Satyajit Chakrabarti</h3>
                 <p className="text-sm text-muted-foreground mb-4">Patron</p>
