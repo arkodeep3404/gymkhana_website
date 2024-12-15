@@ -14,7 +14,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-// Carousel Component
 import Carousel from "@/components/carousel";
 interface Award {
   title: string;
@@ -279,7 +278,7 @@ function AwardsCarousel2023() {
           }}
         >
           {awards2023.map((award, index) => (
-            <div key={index} className="flex-none w-1/4">
+            <div key={index} className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-2">
               <div
                 className="bg-white rounded-lg overflow-hidden shadow-md cursor-pointer transition-transform hover:scale-105"
                 onClick={() => openAwardDetails(award)}
@@ -307,134 +306,108 @@ function AwardsCarousel2023() {
       </div>
 
       <Dialog open={selectedAward !== null} onOpenChange={closeAwardDetails}>
-  <DialogContent className="sm:max-w-[1000px] h-[450px] p-6 rounded-[10px]">
-    <div className="flex">
-      {/* Left side: Image Carousel */}
-      <div className="w-1/3 mr-6">
-        {/* Main Image */}
-        {selectedAward?.gallery && selectedAward.gallery.length > 0 && (
-          <div className="relative mb-4">
-            <Image
-              src={selectedAward.gallery[currentIndex]}
-              alt={selectedAward?.title}
-              width={300}
-              height={300}
-              className="object-cover rounded-[10px] w-full"
-            />
-          </div>
-        )}
+        <DialogContent className="sm:max-w-[90vw] md:max-w-[80vw] lg:max-w-[1000px] h-[80vh] md:h-[450px] p-4 md:p-6 rounded-[10px] overflow-y-auto">
+          <div className="flex flex-col md:flex-row">
+            {/* Left side: Image Carousel */}
+            <div className="w-full md:w-1/3 mb-4 md:mb-0 md:mr-6">
+              {/* Main Image */}
+              {selectedAward?.gallery && selectedAward.gallery.length > 0 && (
+                <div className="relative mb-4">
+                  <Image
+                    src={selectedAward.gallery[currentIndex]}
+                    alt={selectedAward?.title}
+                    width={300}
+                    height={300}
+                    className="object-cover rounded-[10px] w-full h-48 md:h-64"
+                  />
+                </div>
+              )}
 
-        {/* Thumbnail Images with Carousel */}
-        <div className="flex items-center justify-center space-x-2">
-          {/* Previous Button */}
-          <button 
-            onClick={() => setCurrentIndex(prev => 
-              prev > 0 ? prev - 1 : (selectedAward?.gallery.length || 1) - 1
-            )}
-            className="p-1 rounded-full bg-gray-200 hover:bg-gray-300"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-
-          {/* Thumbnails */}
-          <div className="flex space-x-2">
-            {(selectedAward?.gallery.length
-              ? selectedAward.gallery
-              : [selectedAward?.image]
-            ).map((img, index) => (
-              <div
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`relative w-16 h-16 cursor-pointer rounded-[10px] overflow-hidden 
-                  ${index === currentIndex ? 'border-2 border-blue-500' : 'opacity-70 hover:opacity-100'}`}
-              >
-                <Image
-                  src={img || ""}
-                  alt={`Thumbnail ${index + 1}`}
-                  fill
-                  className="object-cover rounded-[10px]"
-                />
+              {/* Thumbnail Images with Carousel */}
+              <div className="flex space-x-2 overflow-x-auto pb-2">
+                {(selectedAward?.gallery.length
+                  ? selectedAward.gallery
+                  : [selectedAward?.image]
+                ).map((img, index) => (
+                  <div
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`relative w-12 h-12 md:w-16 md:h-16 flex-shrink-0 cursor-pointer rounded-[10px] overflow-hidden 
+                      ${index === currentIndex ? 'border-2 border-blue-500' : 'opacity-70 hover:opacity-100'}`}
+                  >
+                    <Image
+                      src={img || ""}
+                      alt={`Thumbnail ${index + 1}`}
+                      fill
+                      className="object-cover rounded-[10px]"
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Right side: Text content */}
+            <div className="flex-1">
+              <DialogHeader>
+                <DialogTitle className="text-xl font-bold">
+                  {selectedAward?.title}
+                </DialogTitle>
+              </DialogHeader>
+
+              {/* Description */}
+              <p className="text-md font-medium mb-2">
+                {selectedAward?.description}
+              </p>
+
+              {/* Infomatics Section with Date, Time, Location */}
+              <h3 className="text-lg font-normal mt-4 mb-2">Infomatics</h3>
+              <div className="flex flex-wrap gap-4 mb-2">
+                {/* Date Icon and Info */}
+                <div className="flex items-center space-x-2">
+                  <FaCalendarAlt />
+                  <span className="text-sm">Oct 24</span>
+                </div>
+
+                {/* Time Icon and Info */}
+                <div className="flex items-center space-x-2">
+                  <FaClock />
+                  <span className="text-sm">9pm</span>
+                </div>
+
+                {/* Location Icon and Info */}
+                <div className="flex items-center space-x-2">
+                  <FaMapMarkerAlt />
+                  <span className="text-sm">Kolkata</span>
+                </div>
+              </div>
+
+              {/* Key Moments Section */}
+              <h3 className="text-lg font-normal mt-4 mb-2">Key Moments</h3>
+              {/* Add scrollable area to details */}
+              <p className="text-sm text-gray-600 overflow-y-auto max-h-32 md:max-h-48 scrollbar-custom">
+                {selectedAward?.details}
+              </p>
+            </div>
           </div>
-
-          {/* Next Button */}
-          <button 
-            onClick={() => setCurrentIndex(prev => 
-              prev < ((selectedAward?.gallery.length || 1) - 1) ? prev + 1 : 0
-            )}
-            className="p-1 rounded-full bg-gray-200 hover:bg-gray-300"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
-
-      {/* Right side: Text content */}
-      <div className="flex-1">
-        <DialogHeader>
-          <DialogTitle className="text-xl font-bold">
-            {selectedAward?.title}
-          </DialogTitle>
-        </DialogHeader>
-
-        {/* Description */}
-        <p className="text-md font-medium mb-2">
-          {selectedAward?.description}
-        </p>
-
-        {/* Infomatics Section with Date, Time, Location */}
-        <h3 className="text-lg font-normal mt-4 mb-2">Infomatics</h3>
-        <div className="flex space-x-6 mb-2">
-          {/* Date Icon and Info */}
-          <div className="flex items-center space-x-2">
-            <FaCalendarAlt />
-            <span className="text-sm">Oct 24</span>
-          </div>
-
-          {/* Time Icon and Info */}
-          <div className="flex items-center space-x-2">
-            <FaClock />
-            <span className="text-sm">9pm</span>
-          </div>
-
-          {/* Location Icon and Info */}
-          <div className="flex items-center space-x-2">
-            <FaMapMarkerAlt />
-            <span className="text-sm">Kolkata</span>
-          </div>
-        </div>
-
-        {/* Key Moments Section */}
-        <h3 className="text-lg font-normal mt-4 mb-2">Key Moments</h3>
-        {/* Add scrollable area to details */}
-        <p className="text-sm text-gray-600 overflow-y-auto max-h-48 scrollbar-custom">
-          {selectedAward?.details}
-        </p>
-      </div>
-    </div>
-  </DialogContent>
-</Dialog>
+        </DialogContent>
+      </Dialog>
 
     </div>
   );
 }
-// Events Page
 const Events = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-row ml-20 justify-between items-center py-20">
-        <div className="md:flex-1 flex justify-center md:justify-start">
-          <h1 className="text-5xl font-bold mb-2">
+      <div className="flex flex-col md:flex-row px-4 md:px-20 justify-between items-center py-10 md:py-20">
+        <div className="w-full md:w-1/2 mb-6 md:mb-0">
+          <h1 className="text-3xl md:text-5xl font-bold mb-2 text-center md:text-left">
             Vibrant Events, Lasting Memories.
           </h1>
         </div>
-        <div className="md:flex-1 pl-64  flex flex-col justify-evenly md:items-start">
+        <div className="w-full md:w-1/2">
           <p className="text-lg text-gray-950 text-center md:text-left">
-            From athletics to cultural fests, it empowers students
-            <br className="hidden md:inline" />
-            to explore their passions beyond academics.
+            From athletics to cultural fests, it empowers students to explore their passions beyond academics.
           </p>
         </div>
       </div>
@@ -453,3 +426,4 @@ const Events = () => {
 };
 
 export default Events;
+
