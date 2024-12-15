@@ -279,19 +279,15 @@ const Events = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-row ml-20 justify-between items-center py-10">
-        <div className="md:flex-1 flex justify-center md:justify-start">
-          <h1 className="text-5xl font-bold mb-2">
-            Vibrant Events,
-            <br className="hidden md:inline" />
-            Lasting Memories.
+      <div className="flex flex-col md:flex-row px-4 md:px-20 justify-between items-center py-10 md:py-20">
+        <div className="w-full md:w-1/2 mb-6 md:mb-0">
+          <h1 className="text-3xl md:text-5xl font-bold mb-2 text-center md:text-left">
+            Vibrant Events, Lasting Memories.
           </h1>
         </div>
-        <div className="md:flex-1 pl-64  flex flex-col justify-evenly md:items-start">
-          <p className="text-lg text-gray-600 text-center md:text-left">
-            From athletics to cultural fests, it empowers students
-            <br className="hidden md:inline" />
-            to explore their passions beyond academics.
+        <div className="w-full md:w-1/2">
+          <p className="text-lg text-gray-950 text-center md:text-left">
+            From athletics to cultural fests, it empowers students to explore their passions beyond academics.
           </p>
         </div>
       </div>
