@@ -17,6 +17,7 @@ export const Navbar = () => {
     { href: "/Club", label: "Members" },
     { href: "/Teams", label: "Teams" },
     { href: "/Community", label: "Community" },
+    { href: "/committee", label: "Committee" },
   ]
 
   return (
