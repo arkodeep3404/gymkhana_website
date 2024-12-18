@@ -5,23 +5,32 @@ import { ChevronLeft, ChevronRight } from "react-feather";
 import Image from "next/image";
 import Footer from "@/components/footer";
 import Carousel from "@/components/carousel";
-// Carousel Component
 const events = [
   {
-    title: "Excellence in Higher Education",
+    title: "Study Abroad Program",
     description:
-      "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
-    image: "/higher-edu.png", // Update with the actual image path
+      "Study Abroad Programme organized by IEM and UEM at the National University of Singapore (NUS). Lecture Sessions were taken by Prof. Dr. Lim Kwain Hui and other emminent Professors from NUS, during the Study Abroad Program.",
+    image: "/awards/new 1.png",
   },
   {
-    title: "Another Event",
-    description: "Description for another event.",
-    image: "/award1.png", // Add additional events as needed
+    title: "Zee 24 Ghanta",
+    description: "Zee 24 Ghanta awarded IEM - UEM group for Excellence in Placements - Engineering and Management category at the Education Excellence 2024 programme.",
+    image: "/awards/new 2.png",
   },
   {
-    title: "Another Event",
-    description: "Description for another event.",
-    image: "/award2.png", // Add additional events as needed
+    title: "Center of Excellence",
+    description: " IEM has been certified as a Microsoft Center of Excellence for the Microsoft Learn Program, the certificate signed by the Microsoft CEO Satya Nadella. Congratulations to all IEM-UEM students, alumni, family members, friends, partners, collaborators",
+    image: "/awards/new 3.png",
+  },
+  {
+    title: "Alma Mater",
+    description: "“I am very grateful and humbled to be invited by Institute Of Engineering and Management my Alma Mater to give a talk with the amazing students of the college on my journey and sharing my success story! It was an honor for me to see my picture in the hall of fame and spend some time answering questions about career journeys, the endless possibilities within technology sphere globally. Thanks Dr. Sanghamitra Poddar for inviting me and every student for diligently listening and reaching out.",
+    image: "/awards/new 4.png",
+  },
+  {
+    title: "Recognition",
+    description: "IEM-UEM group was recognized as the Most Trusted Leader in Engineering and Management Education by TV18 in the Leadership Conclave 2023 on 13th January, 2023.",
+    image: "/awards/new 5.png",
   },
 ];
 
