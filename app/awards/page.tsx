@@ -293,7 +293,7 @@ const Events = () => {
       </div>
 
       {/* Carousel Section */}
-      <div className="flex justify-center py-10">
+      <div className=" py-10">
         <Carousel items={events} />
       </div>
       <div className="mb-20">

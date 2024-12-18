@@ -89,7 +89,7 @@ const Carousel = ({
       <div className="relative max-w-[2000px] mx-auto">
         <div
           className="relative flex items-center justify-center px-4"
-          style={{ minHeight: `${mainImageHeight}px` }}
+          
         >
           {/* Previous Image */}
           <div
