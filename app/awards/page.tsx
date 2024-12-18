@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from "react-feather";
 import Image from "next/image";
 import Footer from "@/components/footer";
 import Carousel from "@/components/carousel";
+import Carousel3 from "@/components/carousel3";
 const events = [
   {
     title: "Study Abroad Program",
@@ -329,9 +330,12 @@ const Events = () => {
       </div>
 
       {/* Carousel Section */}
-      <div className=" py-10">
+      <div className=" py-10 hidden lg:block">
         <Carousel items={events} />
       </div>
+      <div className="block md:hidden py-10">
+  <Carousel3 items={events} />
+</div>
       <div className="mb-20">
         <AwardsGridCarousel />
       </div>
