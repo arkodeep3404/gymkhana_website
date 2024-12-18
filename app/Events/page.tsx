@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import Carousel from "@/components/carousel";
+import Carousel3 from "@/components/carousel3";
 interface Award {
   title: string;
   description: string;
@@ -471,8 +472,11 @@ const Events = () => {
       </div>
 
       {/* Carousel Section */}
-      <div className="flex justify-center py-10">
+      <div className="flex justify-center py-10 hidden lg:block">
         <Carousel items={events} />
+      </div>
+      <div className=" block md:hidden flex justify-center py-10">
+        <Carousel3 items={events} />
       </div>
 
       <div className="mb-20">
