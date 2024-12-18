@@ -71,9 +71,11 @@ const FeaturedEvents = () => {
           <p className="lg:pt-10 text-center md:text-left">
             From academic achievements to sustainability drives, explore how colleges are shaping the future with impactful projects and collaborations.
           </p>
+          <a href="/Events">
           <Button className="mt-4 bg-[#0740C6] hover:bg-[#0636B1] text-white rounded-full">
             Explore events <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
+          </a>
         </div>
       </div>
     </div>

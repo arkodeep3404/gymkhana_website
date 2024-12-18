@@ -13,9 +13,11 @@ export default function Component() {
             <p className="text-lg text-black">
               From athletics to cultural fests, it empowers students to explore their passions beyond academics.
             </p>
+            <a href="/Club">
             <Button className="rounded-full bg-[#0740C6] hover:bg-[#0740C6]/90 text-white">
               Discover →
             </Button>
+            </a>
           </div>
         </div>
         <div className="relative aspect-[16/9] md:aspect-[2/1] lg:aspect-[3/1] overflow-hidden rounded-3xl">

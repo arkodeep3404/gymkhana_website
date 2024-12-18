@@ -90,9 +90,11 @@ export default function Awards() {
       </div>
 
       <div className="p-10 md:p-20 flex flex-col items-center justify-center">
+        <a href="/awards">
         <Button className="bg-[#0040FF] hover:bg-[#0036DB] text-white rounded-full">
           View More <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
+        </a>
       </div>
     </div>
   )

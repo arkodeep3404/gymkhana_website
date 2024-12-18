@@ -105,9 +105,11 @@ const Featured = () => {
 
       {/* Explore Button */}
       <div className="flex justify-center mt-6">
+        <a href="/Events">
         <Button className="bg-[#0740C6] hover:bg-[#0636B1] text-white rounded-full">
           Explore events <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
+        </a>
       </div>
     </div>
   );
