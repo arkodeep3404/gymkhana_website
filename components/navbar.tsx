@@ -12,24 +12,24 @@ export const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   const navItems = [
-    { href: "/about-us", label: "About Us" },
+    { href: "/Home", label: "About Us" },
     { href: "/Events", label: "Events" },
     { href: "/awards", label: "Awards" },
   ]
 
   const communityItems = [
-    { href: "/clubs", label: "Clubs" },
+    { href: "/Club", label: "Clubs" },
     { href: "/committee", label: "Committee" },
-    { href: "/alumni", label: "Alumni" },
+    { href: "https://alumni.iem.edu.in/", label: "Alumni" },
   ]
 
   return (
     <header className="sticky top-0 z-50 bg-white dark:bg-black py-2 shadow-sm">
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center justify-start">
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="IEM Kolkata logo"
             width={120}
             height={60}
@@ -79,7 +79,7 @@ export const Navbar = () => {
           className="hidden md:block"
         >
           <Button asChild className="text-black rounded-2xl bg-[#f4f2fa] hover:bg-[#f4f2fa]">
-            <Link href="/contact" className="flex items-center">
+            <Link href="https://iem.edu.in/contact-us/" className="flex items-center">
               Get in Touch<span className="ml-2">→</span>
             </Link>
           </Button>
