@@ -7,7 +7,7 @@ export default function Component() {
       <div className="grid gap-8 lg:gap-12">
         <div className="grid gap-6 md:grid-cols-2 md:gap-12 items-start">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            At Gymkhana, passion meets possibilities.
+            IEM Students Gymkhana
           </h1>
           <div className="space-y-6 lg:pl-64">
             <p className="text-lg text-black">
