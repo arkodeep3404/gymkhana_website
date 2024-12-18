@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from "next/image";
 
 // Define types for carousel items and props
@@ -89,11 +89,11 @@ const Carousel = ({
       <div className="relative max-w-[2000px] mx-auto">
         <div
           className="relative flex items-center justify-center px-4"
-          style={{ height: `${mainImageHeight + 100}px` }}
+          style={{ minHeight: `${mainImageHeight}px` }}
         >
           {/* Previous Image */}
           <div
-            className="absolute -left-4 transition-all duration-500 ease-in-out transform"
+            className="absolute -left-4 transition-all duration-500 ease-in-out transform hidden md:block"
             style={{
               width: `${sideImageWidth}px`,
               height: `${sideImageHeight}px`,
@@ -107,8 +107,8 @@ const Carousel = ({
               src={items[(currentIndex - 1 + items.length) % items.length].image}
               alt={items[(currentIndex - 1 + items.length) % items.length].title}
               className={`rounded-lg object-cover w-full h-full shadow-lg ${imageClassName}`}
-              height={500}
-              width={500}
+              layout="fill"
+              objectFit="cover"
             />
           </div>
 
@@ -116,12 +116,14 @@ const Carousel = ({
           <div
             className="relative mx-auto overflow-hidden rounded-3xl shadow-xl z-10"
             style={{
-              width: `${mainImageWidth}px`,
-              height: `${mainImageHeight}px`,
+              width: '100%',
+              maxWidth: `${mainImageWidth}px`,
+              height: '0',
+              paddingBottom: `${(mainImageHeight / mainImageWidth) * 100}%`,
             }}
           >
             <div
-              className="relative w-full h-full transition-transform duration-500"
+              className="absolute inset-0 transition-transform duration-500"
               style={{
                 transform: isTransitioning ? "scale(1.05)" : "scale(1)",
               }}
@@ -129,9 +131,9 @@ const Carousel = ({
               <Image
                 src={items[currentIndex].image}
                 alt={items[currentIndex].title}
-                className={`object-cover w-full h-full ${imageClassName}`}
-                height={500}
-                width={500}
+                className={`object-cover ${imageClassName}`}
+                layout="fill"
+                objectFit="cover"
               />
               <div className="absolute inset-0 border-4 rounded-lg"></div>
             </div>
@@ -139,7 +141,7 @@ const Carousel = ({
 
           {/* Next Image */}
           <div
-            className="absolute -right-4 transition-all duration-500 ease-in-out transform"
+            className="absolute -right-4 transition-all duration-500 ease-in-out transform hidden md:block"
             style={{
               width: `${sideImageWidth}px`,
               height: `${sideImageHeight}px`,
@@ -153,15 +155,15 @@ const Carousel = ({
               src={items[(currentIndex + 1) % items.length].image}
               alt={items[(currentIndex + 1) % items.length].title}
               className={`rounded-lg object-cover w-full h-full shadow-lg ${imageClassName}`}
-              height={500}
-              width={500}
+              layout="fill"
+              objectFit="cover"
             />
           </div>
         </div>
 
         {/* Text Content with Navigation */}
         {showText && (
-          <div className="text-center mt-6 flex items-center justify-center space-x-8">
+          <div className="text-center pt-20 flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
             {/* Left Navigation Button */}
             {showArrows && (
               <button
@@ -174,15 +176,16 @@ const Carousel = ({
               </button>
             )}
 
-          {/* Title and Description */}
-        <div className="w-[450px] max-w-lg"> {/* Fixed width */}
-          <h2 className={`text-2xl font-semibold ${titleClassName}`}>
-              {items[currentIndex].title}
-          </h2>
-          <p className={`text-gray-600 mt-2 ${descriptionClassName}`}>
-              {items[currentIndex].description}
-          </p>
-        </div>
+            {/* Title and Description */}
+            <div className="w-full md:w-[450px] max-w-lg px-4 md:px-0">
+              <h2 className={`text-xl md:text-2xl font-semibold ${titleClassName}`}>
+                {items[currentIndex].title}
+              </h2>
+              <p className={`text-gray-600 mt-2 text-sm md:text-base ${descriptionClassName}`}>
+                {items[currentIndex].description}
+              </p>
+            </div>
+
             {/* Right Navigation Button */}
             {showArrows && (
               <button
@@ -202,3 +205,4 @@ const Carousel = ({
 };
 
 export default Carousel;
+
