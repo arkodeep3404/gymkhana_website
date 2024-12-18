@@ -32,7 +32,7 @@ type CarouselProps = {
 
 const Carousel = ({
   items,
-  mainImageHeight = 680,
+  mainImageHeight = 500,
   mainImageWidth = 1300,
   sideImageHeight = 500,
   sideImageWidth = 160,
@@ -169,11 +169,12 @@ const Carousel = ({
               <button
                 onClick={handlePrev}
                 className={`p-2 bg-blue-500 rounded-full hover:bg-blue-600 
-                    transition-colors disabled:opacity-50 shadow-lg ${navigationClassName}`}
+                transition-colors disabled:opacity-50 shadow-lg ${navigationClassName}`}
                 disabled={isTransitioning}
               >
-                <ChevronLeft className="w-6 h-6 text-white" />
+              <ChevronLeft className="w-6 h-6 text-white" />
               </button>
+
             )}
 
             {/* Title and Description */}

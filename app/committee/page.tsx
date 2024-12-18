@@ -46,8 +46,8 @@ export default function TeamGrid() {
     <Navbar/>
     <div className="max-w-6xl mx-auto py-10">
     <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-0">Meet IEM Gymkhana Committee 2024-25</h2>
-          <p className="text-muted-foreground md:text-right max-w-md">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-0 text-center md:text-left">Meet IEM Gymkhana Committee 2024-25</h2>
+          <p className="text-muted-foreground md:text-right max-w-md text-center md:text-left">
           With wisdom and vision, they lay the foundation of our community. Their guidance paves the way for growth and excellence.
           </p>
         </div>
@@ -71,9 +71,9 @@ export default function TeamGrid() {
       </div>
     </div>
     <div className="max-w-6xl mx-auto py-10">
-    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-0">Faculty Members</h2>
-          <p className="text-muted-foreground md:text-right max-w-md">
+    <div className="flex flex-col md:flex-row justify-between  md:items-center mb-12">
+    <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-0 text-center md:text-left">Faculty Members</h2>
+          <p className="text-muted-foreground md:text-right max-w-md text-center">
           Fueled by passion and innovation, they bring ideas to life. Their efforts drive the energy and spirit of our community forward.
           </p>
         </div>
