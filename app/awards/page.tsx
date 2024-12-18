@@ -190,6 +190,7 @@ const awards = [
 function AwardsGridCarousel() {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 8;
+  const itemspermobilepage =4;
   const totalPages = Math.ceil(awards.length / itemsPerPage);
 
   const handlePrev = () => {
@@ -236,41 +237,67 @@ function AwardsGridCarousel() {
           </button>
         </div>
       </div>
-
       <div className="relative overflow-hidden">
-        <div
-          className="flex transition-transform duration-300 ease-in-out"
-          style={{ transform: `translateX(-${currentPage * 100}%)` }}
-        >
-          {Array.from({ length: totalPages }).map((_, pageIndex) => (
-            <div key={pageIndex} className="w-full flex-shrink-0">
-              <div className="grid grid-cols-4 grid-rows-2 gap-6">
-                {awards
-                  .slice(
-                    pageIndex * itemsPerPage,
-                    (pageIndex + 1) * itemsPerPage
-                  )
-                  .map((award, index) => (
-                    <div
-                      key={index}
-                      className="bg-white rounded-lg overflow-hidden shadow-md"
-                    >
-                      <div className="relative w-full pt-[100%]">
-                        <Image
-                          src={award.image}
-                          alt={award.title}
-                          fill
-                          className="object-cover rounded-3xl"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                        />
-                      </div>
-                    </div>
-                  ))}
+    {/* For large screens */}
+  <div
+    className="hidden lg:flex transition-transform duration-300 ease-in-out"
+    style={{ transform: `translateX(-${currentPage * 100}%)` }}>
+    {Array.from({ length: totalPages }).map((_, pageIndex) => (
+      <div key={pageIndex} className="w-full flex-shrink-0">
+        <div className="grid grid-cols-2 sm:grid-cols-4 grid-rows-2 gap-6">
+          {awards
+            .slice(pageIndex * itemsPerPage, (pageIndex + 1) * itemsPerPage)
+            .map((award, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg overflow-hidden shadow-md"
+              >
+                <div className="relative w-full pt-[100%]">
+                  <Image
+                    src={award.image}
+                    alt={award.title}
+                    fill
+                    className="object-cover rounded-3xl"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </div>
+              </div>
+            ))}
+        </div>
+      </div>
+    ))}
+  </div>
+  {/* For mobile screen */}
+  <div
+  className="flex transition-transform duration-300 ease-in-out block sm:hidden"
+  style={{ transform: `translateX(-${currentPage * 100}%)` }}>
+  {Array.from({ length: totalPages }).map((_, pageIndex) => (
+    <div key={pageIndex} className="w-full flex-shrink-0">
+      <div className="grid grid-cols-2 sm:grid-cols-4 grid-rows-2 gap-6">
+        {awards
+          .slice(pageIndex * itemspermobilepage, (pageIndex + 1) * itemspermobilepage)
+          .map((award, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg overflow-hidden shadow-md"
+            >
+              <div className="relative w-full pt-[100%]">
+                <Image
+                  src={award.image}
+                  alt={award.title}
+                  fill
+                  className="object-cover rounded-3xl"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                />
               </div>
             </div>
           ))}
-        </div>
       </div>
+    </div>
+  ))}
+</div>
+
+</div>
     </div>
   );
 }
