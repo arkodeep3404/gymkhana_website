@@ -195,85 +195,79 @@ const awards2023: Award[] = [
 
 const events = [
   {
-    title: "Saraswati Puja",
+    title: "IEM UEM Kolkata Marathon",
     description:
       "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
     image: "/events/new 1.png",
   },
   {
-    title: "Saraswati Puja",
+    title: "IEMPACT",
     description:
       "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
     image: "/events/new 2.png",
   },
   {
-    title: "Saraswati Puja",
+    title: "INNOVACION",
     description:
       "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
     image: "/events/new 3.png",
   },
   {
-    title: "Saraswati Puja",
+    title: "SMF",
     description:
       "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
     image: "/events/new 4.png",
   },
   {
-    title: "Saraswati Puja",
+    title: "IEM MUN",
     description:
       "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
     image: "/events/new 5.png",
   },
   {
-    title: "Saraswati Puja",
+    title: "Sports Day",
     description:
       "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
     image: "/events/new 6.png",
   },
   {
-    title: "Saraswati Puja",
+    title: "Farewell",
     description:
       "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
     image: "/events/new 7.png",
   },
   {
-    title: "Saraswati Puja",
-    description:
-      "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
-    image: "/events/new 8.png",
-  },
-  {
-    title: "Saraswati Puja",
+    title: "Teachers Day",
     description:
       "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
     image: "/events/new 9.png",
   },
   {
-    title: "Saraswati Puja",
+    title: "Agomoni",
     description:
       "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
     image: "/events/new 10.png",
   },
   {
-    title: "Saraswati Puja",
+    title: "Rabindra Jayanti",
     description:
       "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
     image: "/events/new 11.png",
   },
   {
-    title: "Saraswati Puja",
+    title: "Diversion",
     description:
       "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
     image: "/events/new 12.png",
   },
   {
-    title: "Saraswati Puja",
+    title: "Alumni Meet",
     description:
       "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
     image: "/events/new 13.png",
   },
   {
-    title: "Saraswati Puja",
+    title: "Ashram Cup",
     description:
       "From athletics to cultural fests, it empowers students to explore their passions beyond academics.",
     image: "/events/new 14.png",
